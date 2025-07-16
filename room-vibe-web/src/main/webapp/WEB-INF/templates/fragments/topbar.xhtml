@@ -1,0 +1,118 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+
+    <style>
+        #panel-header.card {
+            background: transparent;
+            box-shadow: none;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .ui-toolbar {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            width: 100%;
+            flex-wrap: wrap !important;
+            justify-content: space-between !important;
+        }
+
+        .ui-toolbar-group-left,
+        .ui-toolbar-group-right {
+            align-items: center;
+            flex-wrap: wrap !important;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ui-toolbar-group-left > *,
+        .ui-toolbar-group-right > * {
+            margin: 0.3em 0.6em !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            .ui-toolbar {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .ui-toolbar-group-left,
+            .ui-toolbar-group-right {
+                width: 100% !important;
+                justify-content: center !important;
+                margin-bottom: 0.6em;
+            }
+
+            .ui-toolbar-group-left > *,
+            .ui-toolbar-group-right > * {
+                width: auto;
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <h:form>
+        <div id="panel-header" class="card">
+            <p:toolbar id="menu-tab">
+                <p:toolbarGroup align="left" rendered="#{userSession.hasRole('ADMIN')}">
+                    <h:panelGroup>
+                        <p:commandButton value="Admin usuarios"
+                                         icon="pi pi-user"
+                                         action="/security/userList.xhtml?faces-redirect=true"
+                                         ajax="false"
+                                         styleClass="p-button p-button-info" />
+                    </h:panelGroup>
+                </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+                    <p:commandButton value="Inicio"
+                                     icon="pi pi-home"
+                                     action="/index.xhtml?faces-redirect=true"
+                                     ajax="false" />
+
+                    <p:commandButton value="Reservar"
+                                     icon="pi pi-calendar-plus"
+                                     action="/reserva.xhtml?faces-redirect=true"
+                                     ajax="false" />
+
+                    <p:commandButton value="Servicios"
+                                     icon="pi pi-star"
+                                     action="/servicios.xhtml?faces-redirect=true"
+                                     ajax="false" />
+
+                    <p:commandButton value="Contacto"
+                                     icon="pi pi-envelope"
+                                     action="/contacto.xhtml?faces-redirect=true"
+                                     ajax="false" />
+
+                    <p:commandButton value="Login"
+                                     icon="pi pi-sign-in"
+                                     action="/login.xhtml?faces-redirect=true"
+                                     ajax="false"
+                                     rendered="#{!facesContext.externalContext.getSessionMap().containsKey('user')}" />
+
+                    <p:menuButton value="#{userSession.user.name}"
+                                  icon="pi pi-user"
+                                  iconPos="right"
+                                  rendered="#{authenticationBean.verifyUserSession()}">
+                        <p:menuitem value="Editar perfil"
+                                    icon="pi pi-user-edit"
+                                    url="/security/userEdit.xhtml?faces-redirect=true" />
+
+                        <p:menuitem value="Logout"
+                                    action="#{authenticationBean.logout}"
+                                    ajax="false"
+                                    icon="pi pi-sign-out" />
+                        <p:menuitem value="Home page"
+                                    url="/index.xhtml?faces-redirect=true"
+                                    icon="pi pi-home" />
+                    </p:menuButton>
+                </p:toolbarGroup>
+            </p:toolbar>
+        </div>
+    </h:form>
+</ui:composition>
