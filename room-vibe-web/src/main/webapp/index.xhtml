@@ -10,67 +10,74 @@
     <ui:define name="title-view">
         Room-Vibe 1.0 - Inicio
     </ui:define>
+
     <ui:define name="content">
         <h:form>
-            <div class="card" style="max-width:1000px; margin:auto;">
-                <p:messages skipDetailIfEqualsSummary="true" showDetail="true">
-                    <p:autoUpdate/>
-                </p:messages>
-                <p:panel styleClass="ui-panel ui-widget-content" header="Bienvenido a Room-Vibe">
-                    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-                        <div style="flex:1; min-width:250px; padding:1em;">
-                            <p:graphicImage title="logo" url="images/roomvibe_logo.png" style="width:180px;"/>
-                            <h3 style="margin-top:0.5em;">¡Tu experiencia hotelera comienza aquí!</h3>
-
-                            <p style="font-style:italic; color:#C5A880;">
-                                “Donde el descanso y el diseño se encuentran.”
-                            </p>
-
-                            <p>
-                                En Room-Vibe entendemos que cada huésped es único. Por eso hemos creado una plataforma que no solo gestiona tu estancia, sino que la convierte en una experiencia memorable. Desde el momento en que reservas, hasta el día en que te despides, todo está pensado para ti.
-                            </p>
-
-                            <ul style="padding-left:1.2em; margin-top:1em;">
-                                <li><strong>Reservas rápidas y seguras:</strong> Tu lugar garantizado en segundos.</li>
-                                <li><strong>Gestión personalizada:</strong> Habitaciones, servicios y atención ajustada a tus preferencias.</li>
-                                <li><strong>Control integral:</strong> Información organizada para administración, personal y clientes.</li>
-                                <li><strong>Reportes en tiempo real:</strong> Lo que necesitas, cuando lo necesitas.</li>
-                            </ul>
-
-                            <p style="margin-top:1.2em;">
-                                ¿Listo para vivir la mejor versión de tu estadía?
-                            </p>
-
-                            <p:button value="Iniciar Sesión" icon="pi pi-sign-in" outcome="login" styleClass="p-mt-2"/>
-                            <p:button value="Reserva Ahora" icon="pi pi-calendar-plus" outcome="reserva" styleClass="p-button-success p-mt-2" style="margin-left:1em;"/>
-                        </div>
-
-                        <div style="flex:1; min-width:250px; text-align:center;">
-                            <p:graphicImage url="images/inicio.jpg" alt="Lobby del hotel" style="width:95%; border-radius:10px; box-shadow:0 2px 8px #bbb;"/>
-                            <p style="font-size:0.9em; color:#888; margin-top:0.5em;">Ambientes modernos y confortables</p>
-                            <p:graphicImage url="images/inicio1.jpg" alt="Habitación de hotel" style="width:95%; border-radius:10px; box-shadow:0 2px 8px #bbb; margin-top:1em;"/>
-                            <p style="font-size:0.9em; color:#888;">Habitaciones de lujo para todos los gustos</p>
-                        </div>
+            <!-- HERO SECTION -->
+            <div style="position: relative; background-image: url('images/inicio.jpg'); background-size: cover; background-position: center; height: 80vh; display: flex; align-items: center; justify-content: center;">
+                <div style="background: rgba(0,0,0,0.6); padding: 2em; border-radius: 10px; text-align: center; color: white;">
+                    <h1 style="font-size: 2.5em; margin-bottom: 0.5em;">Bienvenido a Room-Vibe</h1>
+                    <p style="font-size: 1.2em; font-style: italic;">“Donde el descanso y el diseño se encuentran.”</p>
+                    <div style="margin-top: 2em;">
+                        <p:button value="Iniciar Sesión" icon="pi pi-sign-in" outcome="login"
+                                  styleClass="p-button-rounded p-button-warning" style="margin-right: 1em;"/>
+                        <p:button value="Reserva Ahora" icon="pi pi-calendar-plus" outcome="reserva"
+                                  styleClass="p-button-rounded p-button-success"/>
                     </div>
-                </p:panel>
-
-
-                <div style="margin-top:2em;">
-                    <h4 style="text-align:center;">Lo que dicen nuestros huéspedes</h4>
-                    <p:carousel value="#{inicioBean.testimonios}"
-                                var="testimonio"
-                                numVisible="1"
-                                circular="true"
-                                autoplayInterval="5000"
-                                style="max-width:600px;
-                                margin:auto;">
-                        <p:card>
-                            <f:facet name="title">#{testimonio.nombre}</f:facet>
-                            <f:facet name="subtitle">#{testimonio.fecha}</f:facet>
-                            <p>#{testimonio.comentario}</p>
-                        </p:card>
-                    </p:carousel>
                 </div>
+            </div>
+
+            <!-- SOBRE NOSOTROS -->
+            <div style="padding: 4em 2em; text-align: center;">
+                <h2 style="color:#C5A880;">Sobre Nosotros</h2>
+                <p style="max-width: 800px; margin: auto;">
+                    Room-Vibe es una plataforma dedicada a ofrecer la mejor experiencia hotelera, combinando tecnología, comodidad y atención personalizada. Nuestra misión es que cada huésped viva una estadía inolvidable.
+                </p>
+            </div>
+
+            <!-- HABITACIONES -->
+            <div style="background-color: #f9f6f2; padding: 4em 2em;">
+                <h2 style="text-align: center; color:#C5A880;">Nuestras Habitaciones</h2>
+                <div style="display: flex; gap: 2em; flex-wrap: wrap; justify-content: center; margin-top: 2em;">
+                    <p:card style="width: 300px;">
+                        <h4>Habitación Estándar</h4>
+                        <p>Confort y funcionalidad para tu descanso.</p>
+                    </p:card>
+                    <p:card style="width: 300px;">
+                        <h4>Habitación Doble</h4>
+                        <p>Espacio y comodidad para compartir.</p>
+                    </p:card>
+                </div>
+            </div>
+
+            <!-- GALERÍA -->
+            <div style="padding: 4em 2em; text-align: center;">
+                <h2 style="color:#C5A880;">Galería</h2>
+                <div style="display: flex; gap: 1em; flex-wrap: wrap; justify-content: center; margin-top: 2em;">
+                    <p:graphicImage url="images/inicio.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <p:graphicImage url="images/inicio1.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <p:graphicImage url="images/inicio2.jpg" style="width: 200px; border-radius: 10px;"/>
+                </div>
+            </div>
+
+            <!-- TESTIMONIOS -->
+            <div style="background-color: #f9f6f2; padding: 4em 2em;">
+                <h2 style="text-align: center; color:#C5A880;">Lo que dicen nuestros huéspedes</h2>
+                <p:carousel value="#{inicioBean.testimonios}"
+                            var="testimonio"
+                            numVisible="1"
+                            circular="true"
+                            autoplayInterval="5000"
+                            style="max-width: 600px; margin: auto;">
+                    <p:card>
+                        <f:facet name="title">
+                            <p:avatar image="#{testimonio.foto}" label="#{testimonio.nombre}" />
+                            #{testimonio.nombre}
+                        </f:facet>
+                        <f:facet name="subtitle">#{testimonio.fecha}</f:facet>
+                        <p>#{testimonio.comentario}</p>
+                    </p:card>
+                </p:carousel>
             </div>
         </h:form>
     </ui:define>
