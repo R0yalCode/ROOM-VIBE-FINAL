@@ -13,20 +13,23 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 
 ## Vistas del Sistema
 ### Vista 1: index.xhtml
-<img width="1919" height="969" alt="image" src="https://github.com/user-attachments/assets/7c14623e-d9b8-4c4c-955b-6880326be2af" />
+<img width="1904" height="999" alt="Image" src="https://github.com/user-attachments/assets/7a470b58-97d3-490b-92ae-10005e75cbfd" />
 
 ### Vista 2: login.xhtml
-<img width="1919" height="967" alt="image" src="https://github.com/user-attachments/assets/b4332f5e-fd39-4952-a536-d22648bdd12d" />
+<img width="1919" height="1002" alt="Image" src="https://github.com/user-attachments/assets/5994038a-9543-4387-b0d3-df40a1bd712e" />
 
 ### Vista 3: recuperar.xhtml
-<img width="1919" height="973" alt="image" src="https://github.com/user-attachments/assets/b7b6f271-c2cd-4690-9156-acd83a2db41b" />
+<img width="1917" height="954" alt="Image" src="https://github.com/user-attachments/assets/fc4c5896-384f-4971-9c46-1066f5eabc6c" />
+
+### Vista 4: habitaciones.xhtml
+<img width="1918" height="995" alt="Image" src="https://github.com/user-attachments/assets/92c3c77c-01b0-48f7-b1b2-03ba501401ec" />
+<img width="1919" height="864" alt="Image" src="https://github.com/user-attachments/assets/2636aba7-44cd-40f9-abdf-fd12f9f94e2d" />
 
 ### Vista 4: reserva.xhtml
-<img width="1916" height="939" alt="image" src="https://github.com/user-attachments/assets/537e49b3-12ac-4e32-af02-ceb05ce71e2e" />
+<img width="1904" height="980" alt="Image" src="https://github.com/user-attachments/assets/7ff2d13e-da25-42d4-a0fc-2d25e7c19a8d" />
 
 ### Vista 5: servicios.xhtml
-<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/7c62735a-3804-4b47-a78c-fc3abcc78996" />
-<img width="1902" height="960" alt="image" src="https://github.com/user-attachments/assets/06c115d6-0ca9-4594-9116-0887f48ec990" />
+<img width="1909" height="944" alt="Image" src="https://github.com/user-attachments/assets/e31b2049-ed9a-49f0-a7f7-1ea2e21bbffe" />
 
 ### Vista 6: contacto.xhtml
 <img width="1903" height="960" alt="image" src="https://github.com/user-attachments/assets/a2c055f9-5ef2-44ad-bd9e-7f3a39f7fcad" />
@@ -143,16 +146,17 @@ Asegúrate de tener configurada la variable de entorno JAVA_HOME apuntando a tu 
 ##  Instalación del proyecto
 
 ```bash
-git clone https://github.com/R0yalCode/Room-Vibe-Final.git
-cd Room-Vibe
-mvn clean install
+bash
+git clone https://github.com/R0yalCode/ROOM-VIBE-FINAL.git
+cd ROOM-VIBE-FINAL
+mvn clean install
 ```
 ---
 
 ##  Roles del equipo
 
 
-- ### [Steeven Pardo](https://github.com/Dan1el17) : Configuracion y connexion con la base de datos
+- ### [Steeven Pardo](https://github.com/Dan1el17) : Configuracion y conexion con la base de datos
 - ### [Royel Jima](https://github.com/R0yalCode) : Configuracion en las vistas, cuando el usuario se va a registrar o iniciar secion.  
 - ### [Juan Calopino](https://github.com/JuaaanCalopino) : 
 - ### [Daniel Saavedra](https://github.com/Dan-San837) : 
