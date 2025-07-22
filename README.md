@@ -13,7 +13,7 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 
 ## Vistas del Sistema
 ### Vista 1: index.xhtml
-<img width="1919" height="969" alt="image" src="https://github.com/user-attachments/assets/7c14623e-d9b8-4c4c-955b-6880326be2af" />
+<img width="1904" height="999" alt="Image" src="https://github.com/user-attachments/assets/7a470b58-97d3-490b-92ae-10005e75cbfd" />
 
 ### Vista 2: login.xhtml
 <img width="1919" height="1002" alt="Image" src="https://github.com/user-attachments/assets/5994038a-9543-4387-b0d3-df40a1bd712e" />
