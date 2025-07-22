@@ -26,7 +26,7 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 <img width="1919" height="864" alt="Image" src="https://github.com/user-attachments/assets/2636aba7-44cd-40f9-abdf-fd12f9f94e2d" />
 
 ### Vista 4: reserva.xhtml
-<img width="1916" height="939" alt="image" src="https://github.com/user-attachments/assets/537e49b3-12ac-4e32-af02-ceb05ce71e2e" />
+<img width="1904" height="980" alt="Image" src="https://github.com/user-attachments/assets/7ff2d13e-da25-42d4-a0fc-2d25e7c19a8d" />
 
 ### Vista 5: servicios.xhtml
 <img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/7c62735a-3804-4b47-a78c-fc3abcc78996" />
