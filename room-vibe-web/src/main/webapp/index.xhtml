@@ -10,68 +10,172 @@
     <ui:define name="title-view">
         Room-Vibe 1.0 - Inicio
     </ui:define>
+
     <ui:define name="content">
         <h:form>
-            <div class="card" style="max-width:1000px; margin:auto;">
-                <p:messages skipDetailIfEqualsSummary="true" showDetail="true">
-                    <p:autoUpdate/>
-                </p:messages>
-                <p:panel styleClass="ui-panel ui-widget-content" header="Bienvenido a Room-Vibe">
-                    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-                        <div style="flex:1; min-width:250px; padding:1em;">
-                            <p:graphicImage title="logo" url="images/roomvibe_logo.png" style="width:180px;"/>
-                            <h3 style="margin-top:0.5em;">¡Tu experiencia hotelera comienza aquí!</h3>
 
-                            <p style="font-style:italic; color:#C5A880;">
-                                “Donde el descanso y el diseño se encuentran.”
-                            </p>
+            <!-- HERO SECTION -->
+            <div class="hero-section"> 
+                <div class="hero-overlay">
+                    <h1 style="text-align: center; color: #fff; font-size: 2em; margin-bottom: 1em;">¿A dónde quieres ir?</h1>
+                    <p:card styleClass="hero-form-card">
+                        <h:panelGrid columns="4" columnClasses="form-col,form-col,form-col,form-btn" style="width:100%; gap: 1em; align-items:center;">
+                            <p:autoComplete id="destino" placeholder="Destino" value=""
+                                            dropdown="true" forceSelection="false"/>
 
-                            <p>
-                                En Room-Vibe entendemos que cada huésped es único. Por eso hemos creado una plataforma que no solo gestiona tu estancia, sino que la convierte en una experiencia memorable. Desde el momento en que reservas, hasta el día en que te despides, todo está pensado para ti.
-                            </p>
+                            <p:datePicker id="fecha" placeholder="Fechas" selectionMode="range"/>
 
-                            <ul style="padding-left:1.2em; margin-top:1em;">
-                                <li><strong>Reservas rápidas y seguras:</strong> Tu lugar garantizado en segundos.</li>
-                                <li><strong>Gestión personalizada:</strong> Habitaciones, servicios y atención ajustada a tus preferencias.</li>
-                                <li><strong>Control integral:</strong> Información organizada para administración, personal y clientes.</li>
-                                <li><strong>Reportes en tiempo real:</strong> Lo que necesitas, cuando lo necesitas.</li>
-                            </ul>
+                            <p:selectOneMenu id="huespedes" value="" style="width:100%;">
+                                <f:selectItem itemLabel="1 huésped" itemValue="1"/>
+                                <f:selectItem itemLabel="2 huéspedes" itemValue="2"/>
+                                <f:selectItem itemLabel="3 huéspedes" itemValue="3"/>
+                                <f:selectItem itemLabel="4 huéspedes" itemValue="4"/>
+                            </p:selectOneMenu>
 
-                            <p style="margin-top:1.2em;">
-                                ¿Listo para vivir la mejor versión de tu estadía?
-                            </p>
-
-                            <p:button value="Iniciar Sesión" icon="pi pi-sign-in" outcome="login" styleClass="p-mt-2"/>
-                            <p:button value="Reserva Ahora" icon="pi pi-calendar-plus" outcome="reserva" styleClass="p-button-success p-mt-2" style="margin-left:1em;"/>
-                        </div>
-
-                        <div style="flex:1; min-width:250px; text-align:center;">
-                            <p:graphicImage url="images/inicio.jpg" alt="Lobby del hotel" style="width:95%; border-radius:10px; box-shadow:0 2px 8px #bbb;"/>
-                            <p style="font-size:0.9em; color:#888; margin-top:0.5em;">Ambientes modernos y confortables</p>
-                            <p:graphicImage url="images/inicio1.jpg" alt="Habitación de hotel" style="width:95%; border-radius:10px; box-shadow:0 2px 8px #bbb; margin-top:1em;"/>
-                            <p style="font-size:0.9em; color:#888;">Habitaciones de lujo para todos los gustos</p>
-                        </div>
-                    </div>
-                </p:panel>
-
-
-                <div style="margin-top:2em;">
-                    <h4 style="text-align:center;">Lo que dicen nuestros huéspedes</h4>
-                    <p:carousel value="#{inicioBean.testimonios}"
-                                var="testimonio"
-                                numVisible="1"
-                                circular="true"
-                                autoplayInterval="5000"
-                                style="max-width:600px;
-                                margin:auto;">
-                        <p:card>
-                            <f:facet name="title">#{testimonio.nombre}</f:facet>
-                            <f:facet name="subtitle">#{testimonio.fecha}</f:facet>
-                            <p>#{testimonio.comentario}</p>
-                        </p:card>
-                    </p:carousel>
+                            <p:commandButton value="Buscar" icon="pi pi-search"
+                                             styleClass="ui-button-raised ui-button-info"/>
+                        </h:panelGrid>
+                    </p:card>
                 </div>
             </div>
+
+            <!-- Estilos personalizados -->
+            <h:outputStylesheet>
+                .hero-section {
+                    background-image: url('images/inicio.jpg') ;
+                    background-size: cover;
+                    background-position: center;
+                    height: 50vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 1em;
+                }
+
+                .hero-overlay {
+                    background-color: rgba(0, 0, 0, 0.6);
+                    padding: 2em;
+                    border-radius: 1em;
+                    width: 90%;
+                    max-width: 1000px;
+                }
+
+                .hero-form-card {
+                    background: #fff;
+                    padding: 1.5em;
+                    border-radius: 30px;
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                }
+
+                .form-col {
+                    min-width: 200px;
+                }
+
+                .form-btn {
+                    text-align: center;
+                }
+
+                @media (max-width: 768px) {
+                    .hero-section {
+                        height: auto;
+                        padding: 2em 0;
+                    }
+
+                    .hero-form-card h\\:panelGrid {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1em;
+                    }
+                }
+            </h:outputStylesheet>
+
+            <!-- SOBRE NOSOTROS -->
+            <div style="padding: 4em 2em; text-align: center;">
+                <h2 style="color:#C5A880;">Sobre Nosotros</h2>
+                <p style="max-width: 800px; margin: auto;">
+                    Room-Vibe es una plataforma dedicada a ofrecer la mejor experiencia hotelera, combinando tecnología, comodidad y atención personalizada. Nuestra misión es que cada huésped viva una estadía inolvidable.
+                </p>
+            </div>
+
+            <!-- HABITACIONES -->
+           <style> 
+                .product-item .product-item-content {
+                    border: 1px solid var(--surface-d);
+                    border-radius: 3px;
+                    margin: .3rem;
+                    text-align: center;
+                    padding: 2rem 0;
+                }
+
+                .product-item .product-image {
+                    width: 50%;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+                }
+            </style>
+
+            <div class="card" style="background-color: #f9f6f2; padding: 4em 2em;">
+                <h2 style="text-align: center; color:#C5A880;">Nuestras Habitaciones</h2>
+                <p:carousel value="#{carouselView.products}" var="product" numVisible="3" numScroll="3"
+                            responsiveOptions="#{carouselView.responsiveOptions}" style="margin-top: 2em;">
+                    <f:facet name="header">
+                        <h5>Habitaciones Disponibles</h5>
+                    </f:facet>
+                    <div class="product-item">
+                        <div class="product-item-content">
+                            <div class="mb-3">
+                                <p:graphicImage url="images/habitaciones/#{product.image}" styleClass="product-image" />
+                            </div>
+                            <div>
+                                <h4 class="mb-1">#{product.name}</h4>
+                                <h6 class="mt-0 mb-3">
+                                    <h:outputText value="#{product.price}">
+                                        <f:convertNumber type="currency" pattern="¤#0" currencySymbol="$" />
+                                    </h:outputText>
+                                </h6>
+                                <span class="product-badge status-available">#{product.inventoryStatus}</span>
+                                <div class="mt-5">
+                                    <p:commandButton type="button" icon="pi pi-search" styleClass="rounded-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-star" styleClass="ui-button-success rounded-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-cog" styleClass="ui-button-help rounded-button" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p:carousel>
+            </div>
+
+
+
+            <!-- GALERÍA -->
+            <div style="padding: 4em 2em; text-align: center;">
+                <h2 style="color:#C5A880;">Galería</h2>
+                <div style="display: flex; gap: 1em; flex-wrap: wrap; justify-content: center; margin-top: 2em;">
+                    <p:graphicImage url="images/inicio.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <p:graphicImage url="images/inicio1.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <p:graphicImage url="images/inicio2.jpg" style="width: 200px; border-radius: 10px;"/>
+                </div>
+            </div>
+
+            <!-- TESTIMONIOS -->
+            <div style="background-color: #f9f6f2; padding: 4em 2em;">
+                <h2 style="text-align: center; color:#C5A880;">Lo que dicen nuestros huéspedes</h2>
+                <p:carousel value="#{inicioBean.testimonios}"
+                            var="testimonio"
+                            numVisible="1"
+                            circular="true"
+                            autoplayInterval="5000"
+                            style="max-width: 600px; margin: auto;">
+                    <p:card>
+                        <f:facet name="title">
+                            <p:avatar image="#{testimonio.foto}" label="#{testimonio.nombre}" />
+                            #{testimonio.nombre}
+                        </f:facet>
+                        <f:facet name="subtitle">#{testimonio.fecha}</f:facet>
+                        <p>#{testimonio.comentario}</p>
+                    </p:card>
+                </p:carousel>
+            </div>
+
         </h:form>
     </ui:define>
 </ui:composition>
