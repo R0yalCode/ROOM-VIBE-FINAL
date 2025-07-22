@@ -38,27 +38,39 @@
 
             <!-- HABITACIONES -->
             <div style="background-color: #f9f6f2; padding: 4em 2em;">
-                <h2 style="text-align: center; color:#C5A880;">Nuestras Habitaciones</h2>
-                <div style="display: flex; gap: 2em; flex-wrap: wrap; justify-content: center; margin-top: 2em;">
+                <h2 style="text-align: center; color:#C5A880;">Nuestras Mejores Habitaciones</h2>
+                <p:carousel value="#{carouselHabitacionesMejores.habitaciones}"
+                            var="hab"
+                            numVisible="3"
+                            responsiveOptions="#{carouselHabitacionesMejores.responsiveOptions}"
+                            circular="true"
+                            autoplayInterval="4000"
+                            style="max-width: 900px; margin: auto; margin-top: 2em;">
                     <p:card style="width: 300px;">
-                        <h4>Habitación Estándar</h4>
-                        <p>Confort y funcionalidad para tu descanso.</p>
+                        <f:facet name="header">
+                            <p:graphicImage url="#{hab.imagen}" style="width: 100%; border-radius: 10px;"/>
+                        </f:facet>
+                        <h4>#{hab.nombre}</h4>
+                        <p>#{hab.descripcion}</p>
                     </p:card>
-                    <p:card style="width: 300px;">
-                        <h4>Habitación Doble</h4>
-                        <p>Espacio y comodidad para compartir.</p>
-                    </p:card>
-                </div>
+                </p:carousel>
             </div>
 
             <!-- GALERÍA -->
             <div style="padding: 4em 2em; text-align: center;">
                 <h2 style="color:#C5A880;">Galería</h2>
-                <div style="display: flex; gap: 1em; flex-wrap: wrap; justify-content: center; margin-top: 2em;">
-                    <p:graphicImage url="images/inicio.jpg" style="width: 200px; border-radius: 10px;"/>
-                    <p:graphicImage url="images/inicio1.jpg" style="width: 200px; border-radius: 10px;"/>
-                    <p:graphicImage url="images/inicio2.jpg" style="width: 200px; border-radius: 10px;"/>
-                </div>
+                <p:carousel value="#{carouselGaleriaView.imagenes}"
+                            var="img"
+                            numVisible="3"
+                            responsiveOptions="#{carouselGaleriaView.responsiveOptions}"
+                            circular="true"
+                            autoplayInterval="4000"
+                            style="max-width: 700px; margin: auto;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <p:graphicImage url="#{img.url}" style="width: 200px; border-radius: 10px;"/>
+                        <span style="margin-top: 1em; color: #888;">#{img.descripcion}</span>
+                    </div>
+                </p:carousel>
             </div>
 
             <!-- TESTIMONIOS -->
@@ -72,7 +84,7 @@
                             style="max-width: 600px; margin: auto;">
                     <p:card>
                         <f:facet name="title">
-                            <p:avatar image="#{testimonio.foto}" label="#{testimonio.nombre}" />
+                            <p:avatar image="#{testimonio.foto}" label="#{testimonio.nombre}"/>
                             #{testimonio.nombre}
                         </f:facet>
                         <f:facet name="subtitle">#{testimonio.fecha}</f:facet>
