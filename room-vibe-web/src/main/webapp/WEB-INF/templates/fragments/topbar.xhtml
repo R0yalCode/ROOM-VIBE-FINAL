@@ -1,118 +1,76 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="jakarta.faces.html"
-                xmlns:f="jakarta.faces.core"
-                xmlns:ui="jakarta.faces.facelets"
-                xmlns:p="primefaces">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="jakarta.faces.html"
+             xmlns:f="jakarta.faces.core"
+             xmlns:p="primefaces"
+             xmlns:ui="jakarta.faces.facelets">
+    <h:form style="width:100%;">
+        <p:megaMenu orientation="horizontal" autoDisplay="false" style="width:100%;">
+            <f:facet name="start">
+                <p:graphicImage url="#{request.contextPath}/images/room-vibe-logo.jpg" style="width:120px; cursor:pointer;" onclick="window.location.href='#{request.contextPath}/index.xhtml';"/>
+            </f:facet>
+            <p:submenu label="Reservas" icon="pi pi-fw pi-calendar">
+                <p:column>
+                    <p:submenu label="Gestión de Reservas">
+                        <p:menuitem value="Reservar Ahora" outcome="reserva"/>
+                        <p:menuitem value="Lista de Reservas" outcome="reserva"/>
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
 
-    <style>
-        #panel-header.card {
-            background: transparent;
-            box-shadow: none;
-            margin-bottom: 0;
-            padding: 0;
-        }
 
-        .ui-toolbar {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            width: 100%;
-            flex-wrap: wrap !important;
-            justify-content: space-between !important;
-        }
+            <p:submenu label="Habitaciones" icon="pi pi-fw pi-home">
+                <p:column>
+                    <p:submenu label="Gestión de Habitaciones">
+                        <p:menuitem value="ALL ROOM " outcome="habitaciones"/>
+                        <p:menuitem value="Habitacion Sencilla"  />
+                        <p:menuitem value="Habitacion doble" outcome="habitacionDoble"/>
+                        <p:menuitem value="Habitacion Suite" outcome="habitacionSuite"/>
+                        <p:menuitem value="Habitacion Presidencial" outcome="habitacionPresidencial"/>
 
-        .ui-toolbar-group-left,
-        .ui-toolbar-group-right {
-            align-items: center;
-            flex-wrap: wrap !important;
-            justify-content: center;
-            text-align: center;
-        }
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
 
-        .ui-toolbar-group-left > *,
-        .ui-toolbar-group-right > * {
-            margin: 0.3em 0.6em !important;
-        }
 
-        @media screen and (max-width: 768px) {
-            .ui-toolbar {
-                flex-direction: column !important;
-                align-items: center !important;
-            }
+            <p:submenu label="Clientes" icon="pi pi-fw pi-users">
+                <p:column>
+                    <p:submenu label="Gestión de Clientes">
+                        <p:menuitem value="Cliente" />
+                        <p:menuitem value="Lista de Cliente" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
 
-            .ui-toolbar-group-left,
-            .ui-toolbar-group-right {
-                width: 100% !important;
-                justify-content: center !important;
-                margin-bottom: 0.6em;
-            }
 
-            .ui-toolbar-group-left > *,
-            .ui-toolbar-group-right > * {
-                width: auto;
-                max-width: 100%;
-            }
-        }
-    </style>
+            <p:submenu label="Servicios" icon="pi pi-fw pi-star">
+                <p:column>
+                    <p:submenu label="Servicios completos">
+                        <p:menuitem value="ALL Service" outcome="servicio"/>
+                        <p:menuitem value="Wifi Gratis" outcome="servicioWifi"/>
+                        <p:menuitem value="Estacionamiento" outcome="servicioEstacionamiento"/>
+                        <p:menuitem value="Desayuno incluido" outcome="servicioDesayuno"/>
+                        <p:menuitem value="Seguridad 24h"/>
+                        <p:menuitem value="Salas de reuniones"/>
+                        <p:menuitem value="Spa y Relax"/>
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
 
-    <h:form>
-        <div id="panel-header" class="card">
-            <p:toolbar id="menu-tab">
-                <p:toolbarGroup align="left" rendered="#{userSession.hasRole('ADMIN')}">
-                    <h:panelGroup>
-                        <p:commandButton value="Admin usuarios"
-                                         icon="pi pi-user"
-                                         action="/security/userList.xhtml?faces-redirect=true"
-                                         ajax="false"
-                                         styleClass="p-button p-button-info" />
-                    </h:panelGroup>
-                </p:toolbarGroup>
-
-                <p:toolbarGroup align="right">
-                    <p:commandButton value="Inicio"
-                                     icon="pi pi-home"
-                                     action="/index.xhtml?faces-redirect=true"
-                                     ajax="false" />
-
-                    <p:commandButton value="Reservar"
-                                     icon="pi pi-calendar-plus"
-                                     action="/reserva.xhtml?faces-redirect=true"
-                                     ajax="false" />
-
-                    <p:commandButton value="Servicios"
-                                     icon="pi pi-star"
-                                     action="/servicios.xhtml?faces-redirect=true"
-                                     ajax="false" />
-
-                    <p:commandButton value="Contacto"
-                                     icon="pi pi-envelope"
-                                     action="/contacto.xhtml?faces-redirect=true"
-                                     ajax="false" />
-
-                    <p:commandButton value="Login"
-                                     icon="pi pi-sign-in"
-                                     action="/login.xhtml?faces-redirect=true"
-                                     ajax="false"
-                                     rendered="#{!facesContext.externalContext.getSessionMap().containsKey('user')}" />
-
-                    <p:menuButton value="#{userSession.user.name}"
-                                  icon="pi pi-user"
-                                  iconPos="right"
-                                  rendered="#{authenticationBean.verifyUserSession()}">
-                        <p:menuitem value="Editar perfil"
-                                    icon="pi pi-user-edit"
-                                    url="/security/userEdit.xhtml?faces-redirect=true" />
-
-                        <p:menuitem value="Logout"
-                                    action="#{authenticationBean.logout}"
-                                    ajax="false"
-                                    icon="pi pi-sign-out" />
-                        <p:menuitem value="Home page"
-                                    url="/index.xhtml?faces-redirect=true"
-                                    icon="pi pi-home" />
-                    </p:menuButton>
-                </p:toolbarGroup>
-            </p:toolbar>
-        </div>
+            <p:submenu label="Administración" icon="pi pi-fw pi-cog">
+                <p:column>
+                    <p:submenu label="Administracion">
+                        <p:menuitem value="Grafica" />
+                        <p:menuitem value="Lista" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+            <f:facet name="end">
+                <div class="ui-input-icon-left mr-2" style="display:inline-flex; align-items:center;">
+                    <i class="pi pi-fw pi-search" style="margin-right:4px;"/>
+                    <p:inputText placeholder="Buscar" style="width:120px;"/>
+                </div>
+                <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" outcome="login"/>
+            </f:facet>
+        </p:megaMenu>
     </h:form>
-</ui:composition>
+</ui:fragment>
