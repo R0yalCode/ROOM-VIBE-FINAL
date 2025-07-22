@@ -16,10 +16,10 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 <img width="1919" height="969" alt="image" src="https://github.com/user-attachments/assets/7c14623e-d9b8-4c4c-955b-6880326be2af" />
 
 ### Vista 2: login.xhtml
-<img width="1919" height="967" alt="image" src="https://github.com/user-attachments/assets/b4332f5e-fd39-4952-a536-d22648bdd12d" />
+<img width="1919" height="1002" alt="Image" src="https://github.com/user-attachments/assets/5994038a-9543-4387-b0d3-df40a1bd712e" />
 
 ### Vista 3: recuperar.xhtml
-<img width="1919" height="973" alt="image" src="https://github.com/user-attachments/assets/b7b6f271-c2cd-4690-9156-acd83a2db41b" />
+<img width="1917" height="954" alt="Image" src="https://github.com/user-attachments/assets/fc4c5896-384f-4971-9c46-1066f5eabc6c" />
 
 ### Vista 4: reserva.xhtml
 <img width="1916" height="939" alt="image" src="https://github.com/user-attachments/assets/537e49b3-12ac-4e32-af02-ceb05ce71e2e" />
