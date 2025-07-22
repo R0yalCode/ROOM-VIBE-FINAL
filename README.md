@@ -143,9 +143,10 @@ Asegúrate de tener configurada la variable de entorno JAVA_HOME apuntando a tu 
 ##  Instalación del proyecto
 
 ```bash
-git clone https://github.com/R0yalCode/Room-Vibe-Final.git
-cd Room-Vibe
-mvn clean install
+bash
+git clone https://github.com/R0yalCode/ROOM-VIBE-FINAL.git
+cd ROOM-VIBE-FINAL
+mvn clean install
 ```
 ---
 
