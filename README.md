@@ -21,6 +21,10 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 ### Vista 3: recuperar.xhtml
 <img width="1917" height="954" alt="Image" src="https://github.com/user-attachments/assets/fc4c5896-384f-4971-9c46-1066f5eabc6c" />
 
+### Vista 4: habitaciones.xhtml
+<img width="1918" height="995" alt="Image" src="https://github.com/user-attachments/assets/92c3c77c-01b0-48f7-b1b2-03ba501401ec" />
+<img width="1919" height="864" alt="Image" src="https://github.com/user-attachments/assets/2636aba7-44cd-40f9-abdf-fd12f9f94e2d" />
+
 ### Vista 4: reserva.xhtml
 <img width="1916" height="939" alt="image" src="https://github.com/user-attachments/assets/537e49b3-12ac-4e32-af02-ceb05ce71e2e" />
 
