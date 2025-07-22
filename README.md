@@ -29,8 +29,7 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 <img width="1904" height="980" alt="Image" src="https://github.com/user-attachments/assets/7ff2d13e-da25-42d4-a0fc-2d25e7c19a8d" />
 
 ### Vista 5: servicios.xhtml
-<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/7c62735a-3804-4b47-a78c-fc3abcc78996" />
-<img width="1902" height="960" alt="image" src="https://github.com/user-attachments/assets/06c115d6-0ca9-4594-9116-0887f48ec990" />
+<img width="1909" height="944" alt="Image" src="https://github.com/user-attachments/assets/e31b2049-ed9a-49f0-a7f7-1ea2e21bbffe" />
 
 ### Vista 6: contacto.xhtml
 <img width="1903" height="960" alt="image" src="https://github.com/user-attachments/assets/a2c055f9-5ef2-44ad-bd9e-7f3a39f7fcad" />
