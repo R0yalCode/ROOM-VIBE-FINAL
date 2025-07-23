@@ -1,4 +1,3 @@
-// src/main/java/edu/unl/cc/jbrew/controllers/CarouselServiciosView.java
 package edu.unl.cc.jbrew.controllers;
 
 import jakarta.annotation.PostConstruct;
