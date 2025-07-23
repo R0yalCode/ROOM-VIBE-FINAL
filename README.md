@@ -158,14 +158,14 @@ mvn clean install
 
 - ### [Steeven Pardo](https://github.com/Dan1el17) : Configuración y conexion con la base de datos.
 - ### [Royel Jima](https://github.com/R0yalCode) : Configuración en las vistas, cuando el usuario se va a registrar o iniciar secion.  
-- ### [Juan Calopino](https://github.com/JuaaanCalopino) : 
+- ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseño e implementacion de las vistas para que el cliente pueda elegir las habitaciones y visualizar los servicios.  
 - ### [Daniel Saavedra](https://github.com/Dan-San837) : Diseño de la vista principal (index) e implementación de clases complementarias para la misma. 
 
 ---
 
 ## Autores: 
-### [Royel Jima](https://github.com/R0yalCode)
 ### [Steeven Pardo](https://github.com/Dan1el17)
+### [Royel Jima](https://github.com/R0yalCode)
 ### [Juan Calopino](https://github.com/JuaaanCalopino)
 ### [Daniel Saavedra](https://github.com/Dan-San837)
 
