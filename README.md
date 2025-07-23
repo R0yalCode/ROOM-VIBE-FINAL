@@ -156,10 +156,10 @@ mvn clean install
 ##  Roles del equipo
 
 
-- ### [Steeven Pardo](https://github.com/Dan1el17) : Configuracion y conexion con la base de datos
-- ### [Royel Jima](https://github.com/R0yalCode) : Configuracion en las vistas, cuando el usuario se va a registrar o iniciar secion.  
+- ### [Steeven Pardo](https://github.com/Dan1el17) : Configuración y conexion con la base de datos.
+- ### [Royel Jima](https://github.com/R0yalCode) : Configuración en las vistas, cuando el usuario se va a registrar o iniciar secion.  
 - ### [Juan Calopino](https://github.com/JuaaanCalopino) : 
-- ### [Daniel Saavedra](https://github.com/Dan-San837) : 
+- ### [Daniel Saavedra](https://github.com/Dan-San837) : Diseño de la vista principal (index) e implementación de clases complementarias para la misma. 
 
 ---
 
