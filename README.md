@@ -164,8 +164,8 @@ mvn clean install
 ---
 
 ## Autores: 
-### [Royel Jima](https://github.com/R0yalCode)
 ### [Steeven Pardo](https://github.com/Dan1el17)
+### [Royel Jima](https://github.com/R0yalCode)
 ### [Juan Calopino](https://github.com/JuaaanCalopino)
 ### [Daniel Saavedra](https://github.com/Dan-San837)
 
