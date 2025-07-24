@@ -26,7 +26,9 @@ public class Person implements Serializable {
     private LocalDate birthDate;
 
     @NotNull @NotEmpty
+    @Email(message = "Formato de correo electrónico no válido")
     private String email;
+
 
     @Enumerated(EnumType.STRING)
     private GenderType gender;
@@ -94,9 +96,13 @@ public class Person implements Serializable {
         return email;
     }
 
+
+
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 
     public GenderType getGender() {
         return gender;
@@ -138,6 +144,8 @@ public class Person implements Serializable {
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
+
+
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -146,6 +154,6 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id:" + id + ", firstName:" + firstName + ", lastName:" + lastName + ", birthDate:" + birthDate + ", email:" + email + '}';
+        return "Person{" + "id:" + id + ", firstName:" + firstName + ", lastName:" + lastName + ", birthDate:" + birthDate + ", email:"  + email + '}';
     }
 }
