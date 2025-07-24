@@ -1,7 +1,7 @@
 #  ROOM VIBE
 
 > **Video de navegación del sistema:**  
-> 📺 [Ver demo en YouTube](https://youtu.be/pLuB8P3Vh8Y)  
+> 📺 [Ver demo en YouTube](https://www.youtube.com/watch?v=7RbMmlKqnqg)  
 
 ---
 
