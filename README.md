@@ -161,6 +161,7 @@ mvn clean install
 - ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseño e implementacion de las vistas para que el cliente pueda elegir las habitaciones y visualizar los servicios.  
 - ### [Daniel Saavedra](https://github.com/Dan-San837) : Diseño de la vista principal (index) e implementación de clases complementarias para la misma. 
 
+
 ---
 
 ## Autores: 
