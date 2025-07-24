@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
@@ -10,11 +9,10 @@
 <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
     <h:head>
         <title>
-
             <ui:insert name="title-view">Room-Vibe 1.0</ui:insert>
-
         </title>
 
+        <h:outputStylesheet library="css" name="topbar.css" />
         <ui:insert name="head"/>
 
         <style>
@@ -27,7 +25,7 @@
                 min-height: 100vh;
             }
             .header-container {
-                background-color: #0078d7;
+                background-color: #003366;
                 border-bottom: 1px solid #dee2e6;
                 padding: 0.5rem 1rem;
                 position: fixed;
@@ -43,9 +41,8 @@
                 align-items: center;
                 max-width: 1200px;
                 margin: auto;
-                flex-wrap: nowrap; /* Importante para que los botones no bajen */
+                flex-wrap: nowrap;
             }
-
             .app-title {
                 display: flex;
                 align-items: center;
@@ -59,8 +56,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 2rem;
-                margin-top: 80px; /* Compensa el header fijo */
+                padding: 0rem;
+                margin-top: 120px; /* Ajuste para evitar que se tape por el menú fijo */
             }
             .centered-card {
                 width: 95%;
@@ -80,15 +77,23 @@
             }
         </style>
     </h:head>
+
     <h:body>
         <div class="app-container">
-            <!-- Solo reemplaza la parte del header en base.xhtml -->
             <header id="header">
                 <div class="header-container">
                     <div class="header-content">
                         <div class="app-title">
                             <div class="flex align-items-center gap-3">
+<<<<<<< HEAD
                                 <h:outputText style="color: #fff; font-weight: bold; font-size: 1.125rem"/>
+=======
+                                <h:graphicImage url="#{request.contextPath}/images/room-vibe-logo.jpg"
+                                                width="36" height="36" alt="Room-Vibe"
+                                                style="border-radius: 4px;" />
+                                <h:outputText value="Room-Vibe"
+                                              style="color: #fff; font-weight: bold; font-size: 1.125rem;" />
+>>>>>>> origin/feature
                             </div>
                         </div>
                         <ui:insert name="menu">
@@ -103,11 +108,11 @@
                 <div class="content-container">
                     <div class="centered-card">
                         <ui:insert name="content">
-                            <!-- Contenido será insertado aquí -->
                             <ui:debug hotkey="d"/>
                         </ui:insert>
                     </div>
                 </div>
+                <ui:insert name="outside-content" />
             </main>
 
             <footer id="footer">
@@ -120,7 +125,6 @@
                 <f:facet name="start">
                     <i class="pi pi-spin pi-spinner layout-ajax-loader-icon" aria-hidden="true"/>
                 </f:facet>
-
                 <f:facet name="complete">
                     <h:outputText value=""/>
                 </f:facet>

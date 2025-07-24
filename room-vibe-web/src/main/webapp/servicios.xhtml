@@ -6,19 +6,22 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="WEB-INF/templates/base.xhtml">
+
     <ui:define name="title-view">
         Servicios del Hotel
     </ui:define>
 
     <ui:define name="content">
+
+        <!-- Estilos -->
         <h:outputStylesheet>
             .servicios-card {
-                max-width: 900px;
-                margin: 3em auto;
-                padding: 2em;
-                background: #ffffff;
-                border-radius: 12px;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                max-width: 1000px;
+                margin: 4em auto;
+                padding: 2.5em;
+                background: #fff;
+                border-radius: 16px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 animation: fadeInUp 0.8s ease-out;
             }
 
@@ -26,10 +29,10 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 1.5em;
-                gap: 1.5em;
+                padding: 1.5em 0;
                 border-bottom: 1px solid #eee;
                 flex-wrap: nowrap;
+                gap: 2em;
             }
 
             .servicio-contenido {
@@ -37,28 +40,30 @@
             }
 
             .servicio-contenido i {
-                font-size: 1.8em;
+                font-size: 2em;
                 color: #C5A880;
                 margin-bottom: 0.5em;
             }
 
             .servicio-contenido h3 {
                 margin: 0.3em 0;
-                font-size: 1.2em;
+                font-size: 1.4em;
                 color: #1E2A38;
             }
 
             .servicio-contenido p {
-                color: #777;
-                font-size: 0.95em;
+                color: #666;
+                font-size: 1em;
+                line-height: 1.6;
             }
 
             .servicio-imagen {
                 flex: 1 1 30%;
-                max-width: 150px;
+                max-width: 180px;
                 height: auto;
-                border-radius: 8px;
+                border-radius: 10px;
                 object-fit: cover;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             }
 
             @media (max-width: 768px) {
@@ -79,9 +84,11 @@
             }
         </h:outputStylesheet>
 
+        <!-- Contenido -->
         <div class="servicios-card">
             <h2 style="text-align:center; color:#007ad9; margin-bottom:2em;">
-                <i class="pi pi-star" style="margin-right:10px;"></i>Servicios Exclusivos
+                <i class="pi pi-star" style="margin-right:10px;"></i>
+                Servicios Exclusivos
             </h2>
 
             <p:panelGrid columns="1" styleClass="ui-fluid">
@@ -92,7 +99,7 @@
                         <h3>Wi-Fi Gratuito</h3>
                         <p>Conexión rápida en todas las áreas del hotel para tu comodidad.</p>
                     </div>
-                    <img src="#{'images/servicios/wifi.jpg'}" alt="WiFi" class="servicio-imagen" />
+                    <img src="images/servicios/wifi.jpg" alt="Wi-Fi" class="servicio-imagen" />
                 </div>
 
                 <div class="servicio-item">
@@ -101,16 +108,16 @@
                         <h3>Estacionamiento</h3>
                         <p>Espacio privado y vigilado sin costo adicional para nuestros huéspedes.</p>
                     </div>
-                    <img src="#{'images/servicios/estacionamiento.jpg'}" alt="Estacionamiento" class="servicio-imagen" />
+                    <img src="images/servicios/estacionamiento.jpg" alt="Estacionamiento" class="servicio-imagen" />
                 </div>
 
                 <div class="servicio-item">
                     <div class="servicio-contenido">
                         <i class="pi pi-star"></i>
-                        <h3>Desayuno incluido</h3>
+                        <h3>Desayuno Incluido</h3>
                         <p>Menú variado cada mañana con opciones saludables y locales.</p>
                     </div>
-                    <img src="#{'images/servicios/desayuno.jpg'}" alt="Desayuno" class="servicio-imagen" />
+                    <img src="images/servicios/desayuno.jpg" alt="Desayuno" class="servicio-imagen" />
                 </div>
 
                 <div class="servicio-item">
@@ -119,7 +126,7 @@
                         <h3>Seguridad 24h</h3>
                         <p>Tu tranquilidad es nuestra prioridad: vigilancia continua y acceso controlado.</p>
                     </div>
-                    <img src="#{'images/servicios/seguridad.jpg'}" alt="Seguridad" class="servicio-imagen" />
+                    <img src="images/servicios/seguridad.jpg" alt="Seguridad" class="servicio-imagen" />
                 </div>
 
                 <div class="servicio-item">
@@ -128,7 +135,7 @@
                         <h3>Salas de reuniones</h3>
                         <p>Equipadas para eventos, conferencias o encuentros privados.</p>
                     </div>
-                    <img src="#{'images/servicios/sala.jpg'}" alt="Salas de reuniones" class="servicio-imagen" />
+                    <img src="images/servicios/sala.jpg" alt="Salas de reuniones" class="servicio-imagen" />
                 </div>
 
                 <div class="servicio-item">
@@ -137,11 +144,13 @@
                         <h3>Spa y Relax</h3>
                         <p>Tratamientos de relajación, masajes y bienestar en un ambiente cálido.</p>
                     </div>
-                    <img src="#{'images/servicios/spa.jpg'}" alt="Spa" class="servicio-imagen" />
+                    <img src="images/servicios/spa.jpg" alt="Spa" class="servicio-imagen" />
                 </div>
 
             </p:panelGrid>
         </div>
+
     </ui:define>
+
 </ui:composition>
 </html>

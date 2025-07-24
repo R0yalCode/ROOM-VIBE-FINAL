@@ -14,19 +14,22 @@
     </f:metadata>
 
     <ui:define name="title-view">
-        J-Brew 1.0 - #{userHome.user.id != null ? 'Editar' : 'Crear'} usuario
+        Room-Vibe 1.0 - #{userHome.user.id != null ? 'Editar' : 'Crear'} usuario
     </ui:define>
 
     <ui:define name="content">
         <h:form id="userForm">
             <div class="col-12">
                 <div class="card ui-fluid">
-                    <h5>#{userHome.managed ? 'Editar' : 'Crear'} Usuario</h5>
+                    <h5>
+                        #{userHome.managed ? 'Editar' : 'Crear'} Usuario
+                    </h5>
 
-                    <p:messages skipDetailIfEqualsSummary="true" showDetail="true">
+                    <p:messages skipDetailIfEqualsSummary="true" showDetail="true" closable="true">
                         <p:autoUpdate />
                     </p:messages>
 
+                    <!-- 🧩 Panel de cuenta -->
                     <p:panel header="Cuenta de usuario">
                         <h:panelGrid columns="2" cellpadding="7">
                             <p:outputLabel for="username" value="Nombre de usuario:" />
@@ -36,12 +39,25 @@
                             <p:outputLabel for="password" value="Contraseña:" />
                             <p:password id="password" value="#{userHome.user.password}" required="true"
                                         toggleMask="true" redisplay="true">
-                                <f:validateLength minimum="8" />
+                                <f:validateLength minimum="8" for="password" />
                                 <p:clientValidator />
                             </p:password>
                         </h:panelGrid>
                     </p:panel>
 
+                    <!-- 🆕 Panel de selección de rol -->
+                    <p:panel header="Rol del usuario">
+                        <h:panelGrid columns="2" cellpadding="7">
+                            <p:outputLabel for="userRole" value="Rol asignado:" />
+                            <h:selectOneMenu id="userRole" value="#{userHome.rolSeleccionado}" required="true">
+                                <f:selectItem itemLabel="-- Seleccione --" itemValue="" />
+                                <f:selectItems value="#{userHome.rolesDisponibles}" var="rol"
+                                               itemValue="#{rol.name}" itemLabel="#{rol.name}" />
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                    </p:panel>
+
+                    <!-- 👤 Panel de datos personales -->
                     <p:panel header="Información Personal">
                         <h:panelGrid columns="2" cellpadding="7">
                             <p:outputLabel for="firstName" value="Nombres:" />
@@ -55,46 +71,50 @@
                                           title="Fecha de nacimiento" pattern="yyyy-MM-dd"
                                           showIcon="true" showOnFocus="false"
                                           yearNavigator="yes" monthNavigator="yes" />
+
+                            <!--
+                            <p:outputLabel for="email" value="Correo electrónico:" />
+                            <p:inputText id="email" value="#{userHome.user.person.email}"
+                                         placeholder="ejemplo@correo.com"
+                                         requiredMessage="Please enter your email address."
+                                         validatorMessage="Invalid email format"
+                                         required="true">
+                                <f:validateRegex pattern="^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$" />
+                            </p:inputText>
+                            -->
+
+                            <p:inputText id="email" value="#{userHome.user.person.email}" required="true"
+                                         placeholder="ejemplo@correo.com">
+                                <p:clientValidator />
+                            </p:inputText>
+
+
+
+                            <p:outputLabel for="gender" value="Género:" />
+                            <p:selectOneMenu id="gender" value="#{userHome.user.person.gender}">
+                                <f:selectItem itemLabel="-- Seleccione --" noSelectionOption="true" />
+                                <f:selectItems value="#{factoryListApp.genderOptions}"
+                                               var="gender" itemValue="#{gender}"
+                                               itemLabel="#{gender == 'OTHERS' ? 'Otros' : (gender == 'MALE' ? 'Masculino' : 'Femenino')}" />
+                            </p:selectOneMenu>
                         </h:panelGrid>
                     </p:panel>
 
-                    <p:panel header="Roles asignados">
-                        <h:panelGrid columns="2" cellpadding="7">
-                            <p:outputLabel for="rolesSelect" value="Asignar Roles:" />
-                            <p:selectCheckboxMenu id="rolesSelect"
-                                                  value="#{userHome.user.roles}"
-                                                  label="Seleccionar roles"
-                                                  style="min-width:250px;"
-                                                  required="true">
-                                <f:selectItems value="#{roleRepository.findAllWithPermissions()}"
-                                               var="rol"
-                                               itemLabel="#{rol.name}"
-                                               itemValue="#{rol}" />
-                            </p:selectCheckboxMenu>
-                        </h:panelGrid>
-                    </p:panel>
-
+                    <!-- 🎯 Botones de acción -->
                     <p:commandButton value="Crear" rendered="#{!userHome.managed}"
                                      action="#{userHome.create()}"
-                                     icon="pi pi-user"
-                                     validateClient="true"
-                                     styleClass="mt-3"
-                                     update="@form"
-                                     title="Guarda un usuario nuevo" />
+                                     icon="pi pi-user" validateClient="true" styleClass="mt-3"
+                                     update="@form" title="Guarda un usuario nuevo" />
 
                     <p:commandButton value="Guardar" rendered="#{userHome.managed}"
                                      action="#{userHome.update()}"
-                                     icon="pi pi-user"
-                                     validateClient="true"
-                                     styleClass="mt-3"
-                                     update="@form"
-                                     title="Actualiza el usuario existente" />
+                                     icon="pi pi-user" validateClient="true" styleClass="mt-3"
+                                     update="@form" title="Guarda cambios de usuario" />
 
                     <p:commandButton value="Cancelar"
-                                     action="userList.xhtml?faces-redirect=true"
+                                     action="userList?faces-redirect=true"
                                      immediate="true"
-                                     icon="pi pi-times"
-                                     styleClass="mt-3 ui-button-secondary" />
+                                     icon="pi pi-times" styleClass="mt-3 ui-button-secondary" />
                 </div>
             </div>
         </h:form>
