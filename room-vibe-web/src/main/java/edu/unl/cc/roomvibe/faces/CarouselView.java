@@ -10,6 +10,14 @@ import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
+/**
+ *author:
+ * Steeven Pardo
+ * Juan Calopino
+ * Royel Jima
+ * Daniel Savedra
+ */
+
 @Named
 @ViewScoped
 public class CarouselView implements Serializable {

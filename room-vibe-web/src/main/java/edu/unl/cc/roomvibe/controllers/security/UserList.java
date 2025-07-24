@@ -1,11 +1,13 @@
 package edu.unl.cc.roomvibe.controllers.security;
 
 import edu.unl.cc.roomvibe.bussiness.SecurityFacade;
+import edu.unl.cc.roomvibe.controllers.AuthenticationBean;
 import edu.unl.cc.roomvibe.domain.security.User;
 import edu.unl.cc.roomvibe.exception.EntityNotFoundException;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.context.FacesContext;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
@@ -34,7 +36,7 @@ public class UserList implements java.io.Serializable{
     }
 
     @PostConstruct
-    public void init() {
+    public void init() throws EntityNotFoundException {
         logger.info("****** POST CONSTRUCTOR: " + getCriteria() + " ******");
         this.search();
     }
@@ -49,7 +51,7 @@ public class UserList implements java.io.Serializable{
     }
 
     public String edit(User _selected){
-        //FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selected", _selected);
+        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selected", _selected);
         return "userEdit?faces-redirect=true&id=" + _selected.getId();
     }
 

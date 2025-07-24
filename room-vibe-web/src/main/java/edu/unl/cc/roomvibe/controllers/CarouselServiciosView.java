@@ -9,6 +9,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *author:
+ * Steeven Pardo
+ * Juan Calopino
+ * Royel Jima
+ * Daniel Savedra
+ */
+
 @Named
 @ViewScoped
 public class CarouselServiciosView implements Serializable {
