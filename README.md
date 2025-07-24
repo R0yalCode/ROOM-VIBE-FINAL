@@ -13,26 +13,27 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 
 ## Vistas del Sistema
 ### Vista 1: index.xhtml
-<img width="1904" height="999" alt="Image" src="https://github.com/user-attachments/assets/7a470b58-97d3-490b-92ae-10005e75cbfd" />
+<img width="1901" height="997" alt="image" src="https://github.com/user-attachments/assets/028c8baf-5e80-49ea-9b91-43645dfe5a97" />
 
 ### Vista 2: login.xhtml
-<img width="1919" height="1002" alt="Image" src="https://github.com/user-attachments/assets/5994038a-9543-4387-b0d3-df40a1bd712e" />
+<img width="1919" height="865" alt="image" src="https://github.com/user-attachments/assets/4bf09e19-0ac9-4171-872b-bd48485c1aa6" />
 
 ### Vista 3: recuperar.xhtml
-<img width="1917" height="954" alt="Image" src="https://github.com/user-attachments/assets/fc4c5896-384f-4971-9c46-1066f5eabc6c" />
+<img width="1919" height="673" alt="image" src="https://github.com/user-attachments/assets/699213bf-5991-4764-b8d9-58b45ed2b839" />
 
 ### Vista 4: habitaciones.xhtml
-<img width="1918" height="995" alt="Image" src="https://github.com/user-attachments/assets/92c3c77c-01b0-48f7-b1b2-03ba501401ec" />
-<img width="1919" height="864" alt="Image" src="https://github.com/user-attachments/assets/2636aba7-44cd-40f9-abdf-fd12f9f94e2d" />
+<img width="1901" height="1078" alt="image" src="https://github.com/user-attachments/assets/43d2bbfe-7c60-46c7-a889-bd8f02d3b0f3" />
+<img width="1905" height="1048" alt="image" src="https://github.com/user-attachments/assets/014ec47e-462c-4a8b-be1f-6cb326bd2d4b" />
+<img width="1815" height="1045" alt="image" src="https://github.com/user-attachments/assets/ec2d9c2d-5c9d-4c74-9ed9-72c7196f5991" />
 
 ### Vista 4: reserva.xhtml
-<img width="1904" height="980" alt="Image" src="https://github.com/user-attachments/assets/7ff2d13e-da25-42d4-a0fc-2d25e7c19a8d" />
+<img width="1900" height="1099" alt="image" src="https://github.com/user-attachments/assets/45e9de38-3bce-408e-b1f0-a247f3ce3ece" />
 
 ### Vista 5: servicios.xhtml
-<img width="1909" height="944" alt="Image" src="https://github.com/user-attachments/assets/e31b2049-ed9a-49f0-a7f7-1ea2e21bbffe" />
+<img width="1900" height="1100" alt="image" src="https://github.com/user-attachments/assets/65bfdee5-c5b1-4fef-934a-9d4d2dc52091" />
 
 ### Vista 6: contacto.xhtml
-<img width="1903" height="960" alt="image" src="https://github.com/user-attachments/assets/a2c055f9-5ef2-44ad-bd9e-7f3a39f7fcad" />
+<img width="1901" height="1094" alt="image" src="https://github.com/user-attachments/assets/bc860816-6adc-4596-bd97-23704df75d79" />
 
 ---
 
@@ -157,10 +158,10 @@ mvn clean install
 
 
 
-- ### [Steeven Pardo](https://github.com/Dan1el17) : Encargado de la configuración e integración de la base de datos, asegurando una conexión eficiente y segura entre la aplicación y el sistema de gestión de datos.
-- ### [Royel Jima](https://github.com/R0yalCode) : Responsable de la configuración de las vistas relacionadas con los procesos de registro e inicio de sesión de los usuarios. Revisor, utilizando GitFlow para la revision y correcto flujo de trabajo por los diferentes participantes.   
-- ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseñó e implementó las vistas orientadas al cliente, permitiendo la selección de habitaciones y la visualización detallada de los servicios ofrecidos.  
-- ### [Daniel Saavedra](https://github.com/Dan-San837) : Lideró el diseño de la vista principal (index) del proyecto e implementó clases adicionales para complementar su funcionamiento.
+- ### [Steeven Pardo](https://github.com/Dan1el17) : Configuración y conexion con la base de datos.
+- ### [Royel Jima](https://github.com/R0yalCode) : Configuración en las vistas, cuando el usuario se va a registrar o iniciar secion.  
+- ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseño e implementacion de las vistas para que el cliente pueda elegir las habitaciones y visualizar los servicios.  
+- ### [Daniel Saavedra](https://github.com/Dan-San837) : Diseño de la vista principal (index) e implementación de clases complementarias para la misma. 
 
 
 ---
