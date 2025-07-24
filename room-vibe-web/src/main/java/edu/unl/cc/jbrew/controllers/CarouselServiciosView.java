@@ -1,4 +1,4 @@
-package edu.unl.cc.jbrew.controllers;
+package edu.unl.cc.roomvibe.controllers;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
