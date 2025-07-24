@@ -10,15 +10,12 @@
             <!--<h:graphicImage url="images/room-vibe-logo.jpg" width="50" height="50" />
             <h:outputText value="Room-Vibe" styleClass="brand-text" />-->
         </p:toolbarGroup>
-            <p:submenu label="Habitaciones" icon="pi pi-fw pi-home">
-                <p:column>
-                    <p:submenu label="Gestión de Habitaciones">
-                        <p:menuitem value="ALL ROOM " outcome="servicio1"/>
 
-                        <p:menuitem value="Habitacion Sencilla"  />
-                        <p:menuitem value="Habitacion doble" outcome="habitacionDoble"/>
-                        <p:menuitem value="Habitacion Suite" outcome="habitacionSuite"/>
-                        <p:menuitem value="Habitacion Presidencial" outcome="habitacionPresidencial"/>
+        <p:toolbarGroup align="right">
+            <p:commandButton value="Inicio" action="/index.xhtml?faces-redirect=true"
+                             icon="pi pi-home" styleClass="rounded-button ui-button-flat"
+                             ajax="false"/>
+
             <p:toolbarGroup align="left" rendered="#{userSession.hasRole('ADMIN')}">
             <h:panelGroup>
                 <p:commandButton value="Admin usuarios"

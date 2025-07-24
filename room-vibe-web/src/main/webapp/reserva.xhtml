@@ -55,6 +55,8 @@
             }
         </h:outputStylesheet>
 
+
+
         <div class="card" style="max-width:600px; margin:10px auto; padding:20px;">
             <h2 style="text-align:center; color:#007ad9; margin-bottom:25px;">
                 <i class="pi pi-calendar-plus" style="margin-right:10px;"></i>Reserva de Hotel
@@ -76,7 +78,6 @@
                                  requiredMessage="Este campo es obligatorio"
                                  styleClass="p-inputtext-lg">
                         <p:ajax event="blur" process="@this" update="nombreMsg" />
-                        <f:validator validatorId="ValidatorBean" />
                     </p:inputText>
                     <p:message id="nombreMsg" for="nombre" />
 
@@ -88,7 +89,6 @@
                                  requiredMessage="Este campo es obligatorio"
                                  styleClass="p-inputtext-lg">
                         <p:ajax event="blur" process="@this" update="emailMsg" />
-                        <f:validator validatorId="ValidatorBean" />
                     </p:inputText>
                     <p:message id="emailMsg" for="email" />
 
