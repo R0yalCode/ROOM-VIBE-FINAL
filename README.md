@@ -13,25 +13,6 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 
 ## Vistas del Sistema
 ### Vista 1: index.xhtml
-<<<<<<< HEAD
-<img width="1904" height="999" alt="Image" src="https://github.com/user-attachments/assets/7a470b58-97d3-490b-92ae-10005e75cbfd" />
-
-### Vista 2: login.xhtml
-<img width="1919" height="1002" alt="Image" src="https://github.com/user-attachments/assets/5994038a-9543-4387-b0d3-df40a1bd712e" />
-
-### Vista 3: recuperar.xhtml
-<img width="1917" height="954" alt="Image" src="https://github.com/user-attachments/assets/fc4c5896-384f-4971-9c46-1066f5eabc6c" />
-
-### Vista 4: habitaciones.xhtml
-<img width="1918" height="995" alt="Image" src="https://github.com/user-attachments/assets/92c3c77c-01b0-48f7-b1b2-03ba501401ec" />
-<img width="1919" height="864" alt="Image" src="https://github.com/user-attachments/assets/2636aba7-44cd-40f9-abdf-fd12f9f94e2d" />
-
-### Vista 4: reserva.xhtml
-<img width="1904" height="980" alt="Image" src="https://github.com/user-attachments/assets/7ff2d13e-da25-42d4-a0fc-2d25e7c19a8d" />
-
-### Vista 5: servicios.xhtml
-<img width="1909" height="944" alt="Image" src="https://github.com/user-attachments/assets/e31b2049-ed9a-49f0-a7f7-1ea2e21bbffe" />
-=======
 <img width="1901" height="997" alt="image" src="https://github.com/user-attachments/assets/028c8baf-5e80-49ea-9b91-43645dfe5a97" />
 
 ### Vista 2: login.xhtml
@@ -50,7 +31,6 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 
 ### Vista 5: servicios.xhtml
 <img width="1900" height="1100" alt="image" src="https://github.com/user-attachments/assets/65bfdee5-c5b1-4fef-934a-9d4d2dc52091" />
->>>>>>> origin/feature
 
 ### Vista 6: contacto.xhtml
 <img width="1901" height="1094" alt="image" src="https://github.com/user-attachments/assets/bc860816-6adc-4596-bd97-23704df75d79" />
@@ -177,18 +157,12 @@ mvn clean install
 ##  Roles del equipo
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/feature
 - ### [Steeven Pardo](https://github.com/Dan1el17) : Configuración y conexion con la base de datos.
 - ### [Royel Jima](https://github.com/R0yalCode) : Configuración en las vistas, cuando el usuario se va a registrar o iniciar secion.  
 - ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseño e implementacion de las vistas para que el cliente pueda elegir las habitaciones y visualizar los servicios.  
 - ### [Daniel Saavedra](https://github.com/Dan-San837) : Diseño de la vista principal (index) e implementación de clases complementarias para la misma. 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/feature
 
 ---
 
