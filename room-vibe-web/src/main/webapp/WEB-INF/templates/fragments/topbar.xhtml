@@ -1,158 +1,88 @@
-<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
-             xmlns:h="jakarta.faces.html"
-             xmlns:f="jakarta.faces.core"
-             xmlns:p="primefaces"
-             xmlns:ui="jakarta.faces.facelets">
-    <h:form style="width:100%;">
-        <p:megaMenu orientation="horizontal" autoDisplay="false" style="width:100%;">
-            <f:facet name="start">
-                <p:graphicImage url="#{request.contextPath}/images/room-vibe-logo.jpg" style="width:120px; cursor:pointer;" onclick="window.location.href='#{request.contextPath}/index.xhtml';"/>
-            </f:facet>
-            <p:submenu label="Reservas" icon="pi pi-fw pi-calendar">
-                <p:column>
-                    <p:submenu label="Gestión de Reservas">
-                        <p:menuitem value="Reservar Ahora" outcome="reserva"/>
-                        <p:menuitem value="Lista de Reservas" outcome="reserva"/>
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
 
-<<<<<<< HEAD
+    <h:form>
+        <p:toolbar id="menu-tab" styleClass="topbar-custom">
 
-            <p:submenu label="Habitaciones" icon="pi pi-fw pi-home">
-                <p:column>
-                    <p:submenu label="Gestión de Habitaciones">
-                        <p:menuitem value="ALL ROOM " outcome="servicio1"/>
-                        <p:menuitem value="Habitacion Sencilla"  />
-                        <p:menuitem value="Habitacion doble" outcome="habitacionDoble"/>
-                        <p:menuitem value="Habitacion Suite" outcome="habitacionSuite"/>
-                        <p:menuitem value="Habitacion Presidencial" outcome="habitacionPresidencial"/>
-
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-
-
-            <p:submenu label="Clientes" icon="pi pi-fw pi-users">
-                <p:column>
-                    <p:submenu label="Gestión de Clientes">
-                        <p:menuitem value="Cliente" />
-                        <p:menuitem value="Lista de Cliente" />
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-
-
-            <p:submenu label="Servicios" icon="pi pi-fw pi-star">
-                <p:column>
-                    <p:submenu label="Servicios completos">
-                        <p:menuitem value="ALL Service" outcome="servicio"/>
-                        <p:menuitem value="Wifi Gratis" outcome="servicioWifi"/>
-                        <p:menuitem value="Estacionamiento" outcome="servicioEstacionamiento"/>
-                        <p:menuitem value="Desayuno incluido" outcome="servicioDesayuno"/>
-                        <p:menuitem value="Seguridad 24h"/>
-                        <p:menuitem value="Salas de reuniones"/>
-                        <p:menuitem value="Spa y Relax"/>
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-
-            <p:submenu label="Administración" icon="pi pi-fw pi-cog">
-                <p:column>
-                    <p:submenu label="Administracion">
-                        <p:menuitem value="Grafica" />
-                        <p:menuitem value="Lista" />
-                    </p:submenu>
-                </p:column>
-            </p:submenu>
-            <f:facet name="end">
-                <div class="ui-input-icon-left mr-2" style="display:inline-flex; align-items:center;">
-                    <i class="pi pi-fw pi-search" style="margin-right:4px;"/>
-                    <p:inputText placeholder="Buscar" style="width:120px;"/>
-                </div>
-                <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" outcome="login"/>
-            </f:facet>
-        </p:megaMenu>
-    </h:form>
-</ui:fragment>
-=======
-<h:form>
-    <p:toolbar id="menu-tab" styleClass="topbar-custom">
-        <p:toolbarGroup align="left" rendered="#{userSession.hasRole('ADMIN')}">
-            <!--<h:graphicImage url="images/room-vibe-logo.jpg" width="50" height="50" />
-            <h:outputText value="Room-Vibe" styleClass="brand-text" />-->
-        </p:toolbarGroup>
-
-        <p:toolbarGroup align="right">
-            <p:commandButton value="Inicio" action="/index.xhtml?faces-redirect=true"
-                             icon="pi pi-home" styleClass="rounded-button ui-button-flat"
-                             ajax="false"/>
-
+            <!-- Grupo izquierdo - Solo visible para administradores -->
             <p:toolbarGroup align="left" rendered="#{userSession.hasRole('ADMIN')}">
-            <h:panelGroup>
-                <p:commandButton value="Admin usuarios"
-                                 icon="pi pi-user" styleClass="mr-2"
-                                 action="/security/userList.xhtml?faces-redirect=true"/>
-                <p:commandButton type="button" value="Open" icon="pi pi-folder-open" styleClass="ui-button-success" />
-            </h:panelGroup>
-        </p:toolbarGroup>
+                <h:panelGroup>
+                    <p:commandButton value="Admin usuarios"
+                                     icon="pi pi-user"
+                                     action="/security/userList.xhtml?faces-redirect=true"
+                                     ajax="false"
+                                     styleClass="p-button p-button-info" />
+                </h:panelGroup>
+            </p:toolbarGroup>
 
-            <p:menuButton value="Servicio" action="/servicio.xhtml?faces-redirect=true"
-                             icon="pi pi-briefcase" styleClass="rounded-button ui-button-flat"
-                             ajax="false">
-                            <p:menuitem value="Todos los servicios" url="/servicio.xhtml?faces-redirect=true"/>
-                            <p:menuitem value="Wifi Gratis" url="/servicioWifi.xhtml?faces-redirect=true"/>
-                            <p:menuitem value="Estacionamiento" outcome="servicioEstacionamiento"/>
-                            <p:menuitem value="Desayuno incluido" outcome="servicioDesayuno"/>
-                            <!--
-                            <p:menuitem value="Seguridad 24h"/>
-                            <p:menuitem value="Salas de reuniones"/>
-                            <p:menuitem value="Spa y Relax"/>
-                        -->
-            </p:menuButton>
+            <!-- Grupo derecho - navegación general -->
+            <p:toolbarGroup align="right">
+                <p:commandButton value="Inicio"
+                                 icon="pi pi-home"
+                                 action="/index.xhtml?faces-redirect=true"
+                                 styleClass="rounded-button ui-button-flat"
+                                 ajax="false" />
 
-            <p:menuButton value="Habitaciones" action="/habitaciones.xhtml?faces-redirect=true"
-                            icon="pi pi-moon" styleClass="rounded-button ui-button-flat"
-                            ajax="false">
-                            <p:menuitem value="Ver Habitaciones" outcome="habitaciones"/>
-                            <p:menuitem value="Habitación Doble" outcome="habitacionDoble"/>
-                            <p:menuitem value="Habitación Sencilla" outcome="habitacionSencilla"/>
-                            <p:menuitem value="Habitacion Suite" outcome="habitacionSuite"/>
-                            <p:menuitem value="Habitacion Precidencial" outcome="habitacionPresidencial"/>
+                <p:menuButton value="Servicio"
+                              icon="pi pi-briefcase"
+                              styleClass="rounded-button ui-button-flat"
+                              ajax="false">
+                    <p:menuitem value="Todos los servicios" url="/servicio.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Wifi Gratis" url="/servicioWifi.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Estacionamiento" url="/servicioEstacionamiento.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Desayuno incluido" url="/servicioDesayuno.xhtml?faces-redirect=true" />
+                </p:menuButton>
 
-            </p:menuButton>
+                <p:menuButton value="Habitaciones"
+                              icon="pi pi-moon"
+                              styleClass="rounded-button ui-button-flat"
+                              ajax="false">
+                    <p:menuitem value="Ver Habitaciones" url="/habitaciones.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Habitación Doble" url="/habitacionDoble.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Habitación Sencilla" url="/habitacionSencilla.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Habitación Suite" url="/habitacionSuite.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Habitación Presidencial" url="/habitacionPresidencial.xhtml?faces-redirect=true" />
+                </p:menuButton>
 
-            <p:menuButton   value ="Reservas" action="/reserva.xhtml?faces-redirect=true"
-                            icon="pi pi-calendar" styleClass="rounded-button ui-button-flat"
-                            ajax="false">
-                            <p:menuitem value="Reservar Ahora" outcome="reserva"/>
-            </p:menuButton>
+                <p:menuButton value="Reservas"
+                              icon="pi pi-calendar"
+                              styleClass="rounded-button ui-button-flat"
+                              ajax="false">
+                    <p:menuitem value="Reservar Ahora" url="/reserva.xhtml?faces-redirect=true" />
+                </p:menuButton>
 
-            <p:commandButton value="Contacto" action="/contacto.xhtml?faces-redirect=true"
-                             icon="pi pi-envelope" styleClass="rounded-button ui-button-flat"
-                             ajax="false"/>
-            <p:commandButton value="Iniciar Sesión" action="/login.xhtml?faces-redirect=true"
-                             icon="pi pi-user" styleClass="rounded-button ui-button-flat"
-                             rendered="#{!facesContext.externalContext.getSessionMap().containsKey('user')}" ajax="false"/>
-        </p:toolbarGroup>
+                <p:commandButton value="Contacto"
+                                 icon="pi pi-envelope"
+                                 action="/contacto.xhtml?faces-redirect=true"
+                                 styleClass="rounded-button ui-button-flat"
+                                 ajax="false" />
 
-        <p:menuButton value="#{userSession.user.name}"
-                                  icon="pi pi-user"
-                                  iconPos="right"
-                                  rendered="#{authenticationBean.verifyUserSession()}">
-                        <p:menuitem value="Editar perfil"
-                                    icon="pi pi-user-edit"
-                                    url="/security/userEdit.xhtml?faces-redirect=true" />
+                <p:commandButton value="Iniciar Sesión"
+                                 icon="pi pi-user"
+                                 action="/login.xhtml?faces-redirect=true"
+                                 rendered="#{!facesContext.externalContext.getSessionMap().containsKey('user')}"
+                                 styleClass="rounded-button ui-button-flat"
+                                 ajax="false" />
 
-                        <p:menuitem value="Logout"
-                                    action="#{authenticationBean.logout}"
-                                    ajax="false"
-                                    icon="pi pi-sign-out" />
-                        <p:menuitem value="Home page"
-                                    url="/index.xhtml?faces-redirect=true"
-                                    icon="pi pi-home" />
-                    </p:menuButton>
-    </p:toolbar>
-</h:form>
+                <p:menuButton value="#{userSession.user != null ? userSession.user.name : 'Usuario'}"
+                              icon="pi pi-user"
+                              iconPos="right"
+                              rendered="#{authenticationBean.verifyUserSession()}">
+                    <p:menuitem value="Editar perfil"
+                                icon="pi pi-user-edit"
+                                url="/security/userEdit.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Logout"
+                                action="#{authenticationBean.logout}"
+                                ajax="false"
+                                icon="pi pi-sign-out" />
+                    <p:menuitem value="Home page"
+                                url="/index.xhtml?faces-redirect=true"
+                                icon="pi pi-home" />
+                </p:menuButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+    </h:form>
 </ui:composition>
->>>>>>> origin/feature

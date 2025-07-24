@@ -9,7 +9,15 @@ import java.io.Serial;
 import java.util.Arrays;
 import java.util.List;
 
-@Named("factoryListApp")
+/**
+ *author:
+ * Steeven Pardo
+ * Juan Calopino
+ * Royel Jima
+ * Daniel Savedra
+ */
+
+@Named
 @ApplicationScoped
 public class FactoryListApplication implements java.io.Serializable{
 
