@@ -12,8 +12,8 @@ import java.util.Set;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "User.findLikeName", query = "SELECT o FROM User o WHERE o.name LIKE :name"),
-        @NamedQuery(name = "User.findById", query = "SELECT o FROM User o WHERE o.id = :id")
+        @NamedQuery(name = "User.findLikeName", query = "select o from User o where o.name like :name"),
+        @NamedQuery(name = "User.findById", query = "select o from User o where o.id = :id ")
 })
 public class User implements Serializable {
 
@@ -28,11 +28,12 @@ public class User implements Serializable {
     @NotNull @NotEmpty
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE,
-            CascadeType.REFRESH
-    })
+    @NotNull @NotEmpty
+    @Column(unique = true)
+    private String email;
+
+    // Relations
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Person person;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -41,33 +42,56 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
     private Set<Role> roles;
 
+
     public User() {
-        this.roles = new HashSet<>();
-        this.person = new Person(); // Garantiza que no sea null
+        roles = new HashSet<>();
+        person = new Person();
     }
 
-    public User(Long id, String name, String password) {
+    /**
+     *
+     * @param id
+     * @param name
+     * @param password
+     * @throws IllegalArgumentException
+     */
+    public User(Long id, String name, String password) throws IllegalArgumentException{
         this();
         this.id = id;
-        this.name = sanitizeAndValidateName(name);
+        validateNameRestriction(name);
+        this.name = name.trim();
         this.password = password;
     }
 
-    public User(Long id, String name, String password, Person person) {
+    /**
+     *
+     * @param id
+     * @param name
+     * @param password
+     * @param person
+     * @throws IllegalArgumentException
+     */
+    public User(Long id, String name, String password, Person person)
+            throws IllegalArgumentException{
         this(id, name, password);
         this.person = person;
     }
 
-    private String sanitizeAndValidateName(String text) {
-        if (text == null || text.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre de usuario es obligatorio.");
+    /**
+     *
+     * @param text
+     * @throws IllegalArgumentException
+     */
+    private void validateNameRestriction(String text) throws IllegalArgumentException{
+        if (text == null || text.isEmpty()){
+            throw new IllegalArgumentException("Valor reequerido para name");
         }
-        String cleaned = text.trim();
-        if (cleaned.length() < 5) {
-            throw new IllegalArgumentException("El nombre de usuario debe tener al menos 5 caracteres.");
+
+        if (text.trim().length() < 5){
+            throw new IllegalArgumentException("Valor para name debe supera los 5 caracteres");
         }
-        return cleaned.toLowerCase();
     }
+
 
     public Long getId() {
         return id;
@@ -82,7 +106,7 @@ public class User implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = sanitizeAndValidateName(name);
+        this.name = name;
     }
 
     public String getPassword() {
@@ -90,10 +114,11 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        if (password == null || password.trim().isEmpty()) {
-            throw new IllegalArgumentException("La contraseña no puede estar vacía.");
-        }
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public Person getPerson() {
@@ -113,21 +138,27 @@ public class User implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof User)) return false;
-        User other = (User) obj;
-        return Objects.equals(id, other.id) &&
-                Objects.equals(name, other.name);
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.id);
+        hash = 41 * hash + Objects.hashCode(this.name);
+        return hash;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
+    public boolean equals(Object obj) {
+        return false;
     }
 
     @Override
     public String toString() {
-        return "User{id=" + id + ", name=" + name + ", person=" + person + "}";
+        return "User{" + "id:" + id + ", name:" + name + ", password:" + password
+                + ", person{" + person + '}' + '}';
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/room-vibe-web.iml" filepath="$PROJECT_DIR$/room-vibe-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/room-vibe-web.iml" filepath="$PROJECT_DIR$/.idea/room-vibe-web.iml" />
     </modules>
   </component>
 </project>

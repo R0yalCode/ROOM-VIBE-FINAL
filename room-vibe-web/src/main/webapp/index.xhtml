@@ -15,7 +15,7 @@
         <h:form>
 
             <!-- HERO SECTION -->
-            <div class="hero-section"> 
+            <div class="hero-section">
                 <div class="hero-overlay">
                     <h1 style="text-align: center; color: #fff; font-size: 2em; margin-bottom: 1em;">¿A dónde quieres ir?</h1>
                     <p:card styleClass="hero-form-card">
@@ -39,55 +39,7 @@
                 </div>
             </div>
 
-            <!-- Estilos personalizados -->
-            <h:outputStylesheet>
-                .hero-section {
-                    background-image: url('images/inicio.jpg') ;
-                    background-size: cover;
-                    background-position: center;
-                    height: 50vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 1em;
-                }
-
-                .hero-overlay {
-                    background-color: rgba(0, 0, 0, 0.6);
-                    padding: 2em;
-                    border-radius: 1em;
-                    width: 90%;
-                    max-width: 1000px;
-                }
-
-                .hero-form-card {
-                    background: #fff;
-                    padding: 1.5em;
-                    border-radius: 30px;
-                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-                }
-
-                .form-col {
-                    min-width: 200px;
-                }
-
-                .form-btn {
-                    text-align: center;
-                }
-
-                @media (max-width: 768px) {
-                    .hero-section {
-                        height: auto;
-                        padding: 2em 0;
-                    }
-
-                    .hero-form-card h\\:panelGrid {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 1em;
-                    }
-                }
-            </h:outputStylesheet>
+            <h:outputStylesheet library="css" name="index.css" />
 
             <!-- SOBRE NOSOTROS -->
             <div style="padding: 4em 2em; text-align: center;">
@@ -98,37 +50,36 @@
             </div>
 
             <!-- HABITACIONES -->
-           <style> 
+            <style>
                 .product-item .product-item-content {
                     border: 1px solid var(--surface-d);
                     border-radius: 3px;
                     margin: .3rem;
                     text-align: center;
                     padding: 2rem 0;
-                    height: 100%; /* Asegura que el contenido use todo el espacio disponible */
-                    min-height: 420px; /* Ajusta según la altura total de tus tarjetas */
+                    height: 100%;
+                    min-height: 420px;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between; /* Distribuye el contenido verticalmente */
+                    justify-content: space-between;
                 }
 
                 .product-item .product-image {
                     width: 50%;
                     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
                 }
-           </style>
+            </style>
 
             <div class="card" style="background-color: #f9f9f9; padding: 2rem 0 0 0; width: 100%; margin: 0;">
                 <h2 style="text-align: center; color:#003366;">Nuestras Habitaciones</h2>
                 <p:carousel value="#{carouselView.products}" var="product" numVisible="3" numScroll="3"
                             responsiveOptions="#{carouselView.responsiveOptions}" style="margin-top: 2em;">
                     <f:facet name="header">
-                        <h5>Habitaciones Disponibles</h5>
                     </f:facet>
                     <div class="product-item">
                         <div class="product-item-content">
                             <div class="mb-3">
-                                <p:graphicImage url="images/habitaciones/#{product.image}" styleClass="product-image" />
+                                <h:graphicImage library="images" name="habitaciones/#{product.image}" styleClass="product-image" />
                             </div>
                             <div>
                                 <h4 class="mb-1">#{product.name}</h4>
@@ -151,9 +102,9 @@
             <div style="padding: 4em 2em; text-align: center;">
                 <h2 style="color:#003366;">Galería</h2>
                 <div style="display: flex; gap: 1em; flex-wrap: wrap; justify-content: center; margin-top: 2em;">
-                    <p:graphicImage url="images/inicio.jpg" style="width: 200px; border-radius: 10px;"/>
-                    <p:graphicImage url="images/inicio1.jpg" style="width: 200px; border-radius: 10px;"/>
-                    <p:graphicImage url="images/inicio2.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <h:graphicImage library="images" name="inicio.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <h:graphicImage library="images" name="inicio1.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <h:graphicImage library="images" name="inicio2.jpg" style="width: 200px; border-radius: 10px;"/>
                 </div>
             </div>
 
@@ -177,6 +128,6 @@
                 </p:carousel>
             </div>
         </h:form>
-</ui:define>
-</ui:composition> 
+    </ui:define>
+</ui:composition>
 </html>
