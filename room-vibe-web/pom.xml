@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.unl.cc.roomvibe</groupId>
+    <groupId>edu.unl.cc.jbrew</groupId>
     <artifactId>room-vibe-web</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>RoomVibe Hoteleria</name>
+    <name>JBrews-web Coffe bar</name>
     <description>
         The project demonstrates how you can develop applications with the
         Jakarta EE platform using widely adopted architectural best

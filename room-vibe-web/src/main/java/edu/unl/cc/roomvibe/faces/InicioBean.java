@@ -5,14 +5,6 @@ import jakarta.enterprise.context.RequestScoped;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- *author:
- * Steeven Pardo
- * Juan Calopino
- * Royel Jima
- * Daniel Savedra
- */
-
 @Named
 @RequestScoped
 public class InicioBean {
