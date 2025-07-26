@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:h="jakarta.faces.html"
+                        xmlns:f="jakarta.faces.core"
+                        xmlns:ui="jakarta.faces.facelets"
+                        xmlns:p="primefaces"
+                        template="/WEB-INF/templates/base.xhtml">
+
+            <ui:define name="title-view">Habitaciones y Servicios</ui:define>
+
+            <ui:define name="head">
+                <h:outputStylesheet library="css" name="habitaciones.css" />
+            </ui:define>
+
+    <ui:define name="content">
+        <f:view>
+            <div class="container">
+                <h1 class="titulo-principal">Habitaciones y Servicios</h1>
+
+                <!-- CLASE D -->
+                <div class="clase-titulo">Clase D</div>
+                <div class="rango-precio">Desde $45 hasta $60 por noche</div>
+                <p:carousel value="#{carouselHabitacionesView.habitacionesClaseD}" var="hab"
+                            numVisible="3" numScroll="1" circular="true" autoplayInterval="3000"
+                            responsiveOptions="#{carouselHabitacionesView.responsiveOptions}">
+                    <div class="servicio-card">
+                        <p:graphicImage value="#{resource[hab.imagen]}" alt="#{hab.nombre}" />
+                        <div class="contenido">
+                            <div class="titulo-servicio">#{hab.nombre}</div>
+                            <div class="descripcion-corta">#{hab.descripcion}</div>
+                            <div class="precio">#{hab.precio} / noche</div>
+                        </div>
+                    </div>
+                </p:carousel>
+
+                <!-- CLASE C -->
+                <div class="clase-titulo">Clase C</div>
+                <div class="rango-precio">Desde $65 hasta $90 por noche</div>
+                <p:carousel value="#{carouselHabitacionesView.habitacionesClaseC}" var="hab"
+                            numVisible="3" numScroll="1" circular="true" autoplayInterval="3000"
+                            responsiveOptions="#{carouselHabitacionesView.responsiveOptions}">
+                    <div class="servicio-card">
+                        <p:graphicImage value="#{resource[hab.imagen]}" alt="#{hab.nombre}" />
+                        <div class="contenido">
+                            <div class="titulo-servicio">#{hab.nombre}</div>
+                            <div class="descripcion-corta">#{hab.descripcion}</div>
+                            <div class="precio">#{hab.precio} / noche</div>
+                        </div>
+                    </div>
+                </p:carousel>
+
+                <!-- CLASE B -->
+                <div class="clase-titulo">Clase B</div>
+                <div class="rango-precio">Desde $95 hasta $120 por noche</div>
+                <p:carousel value="#{carouselHabitacionesView.habitacionesClaseB}" var="hab"
+                            numVisible="3" numScroll="1" circular="true" autoplayInterval="3000"
+                            responsiveOptions="#{carouselHabitacionesView.responsiveOptions}">
+                    <div class="servicio-card">
+                        <p:graphicImage value="#{resource[hab.imagen]}" alt="#{hab.nombre}" />
+                        <div class="contenido">
+                            <div class="titulo-servicio">#{hab.nombre}</div>
+                            <div class="descripcion-corta">#{hab.descripcion}</div>
+                            <div class="precio">#{hab.precio} / noche</div>
+                        </div>
+                    </div>
+                </p:carousel>
+
+                <!-- CLASE A -->
+                <div class="clase-titulo">Clase A</div>
+                <div class="rango-precio">Desde $130 hasta $200 por noche</div>
+                <p:carousel value="#{carouselHabitacionesView.habitacionesClaseA}" var="hab"
+                            numVisible="3" numScroll="1" circular="true" autoplayInterval="3000"
+                            responsiveOptions="#{carouselHabitacionesView.responsiveOptions}">
+                    <div class="servicio-card">
+                        <p:graphicImage value="#{resource[hab.imagen]}" alt="#{hab.nombre}" />
+                        <div class="contenido">
+                            <div class="titulo-servicio">#{hab.nombre}</div>
+                            <div class="descripcion-corta">#{hab.descripcion}</div>
+                            <div class="precio">#{hab.precio} / noche</div>
+                        </div>
+                    </div>
+                </p:carousel>
+
+                <!-- CLASE VIP -->
+                <div class="clase-titulo">Clase VIP</div>
+                <div class="rango-precio">Desde $250 hasta $350 por noche</div>
+                <p:carousel value="#{carouselHabitacionesView.habitacionesClaseVIP}" var="hab"
+                            numVisible="3" numScroll="1" circular="true" autoplayInterval="3000"
+                            responsiveOptions="#{carouselHabitacionesView.responsiveOptions}">
+                    <div class="servicio-card">
+                        <p:graphicImage value="#{resource[hab.imagen]}" alt="#{hab.nombre}" />
+                        <div class="contenido">
+                            <div class="titulo-servicio">#{hab.nombre}</div>
+                            <div class="descripcion-corta">#{hab.descripcion}</div>
+                            <div class="precio">#{hab.precio} / noche</div>
+                        </div>
+                    </div>
+                </p:carousel>
+            </div>
+        </f:view>
+    </ui:define>
+        </ui:composition>

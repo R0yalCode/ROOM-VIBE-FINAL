@@ -10,14 +10,6 @@ import java.io.Serializable;
 import java.util.Date;
 import edu.unl.cc.roomvibe.domain.common.Reserva;
 
-/**
- *author:
- * Steeven Pardo
- * Juan Calopino
- * Royel Jima
- * Daniel Savedra
- */
-
 @Named
 @ViewScoped
 public class ReservaBean implements Serializable {
