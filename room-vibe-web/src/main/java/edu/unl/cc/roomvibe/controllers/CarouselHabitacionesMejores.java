@@ -8,13 +8,12 @@ import org.primefaces.model.ResponsiveOption;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- *author:
- * Steeven Pardo
- * Juan Calopino
- * Royel Jima
- * Daniel Savedra
+ * @author Steeven Pardo, Juan Calopino, Royel Jima, Daniel Savedra
+ * @version 1.0
  */
+
 @Named
 @ViewScoped
 public class CarouselHabitacionesMejores implements Serializable {

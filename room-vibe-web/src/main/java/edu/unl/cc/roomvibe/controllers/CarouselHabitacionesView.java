@@ -10,11 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *author:
- * Steeven Pardo
- * Juan Calopino
- * Royel Jima
- * Daniel Savedra
+ * @author Steeven Pardo, Juan Calopino, Royel Jima, Daniel Savedra
+ * @version 1.0
  */
 
 @Named
@@ -34,46 +31,31 @@ public class CarouselHabitacionesView implements Serializable {
         habitacionesClaseD = List.of(
                 new Habitacion("Habitación Simple", "images/habitaciones/sencilla.jpg", "$50", "Ideal para viajeros..."),
                 new Habitacion("Económica Individual", "images/habitaciones/economica.jpg", "$55", "Espacio funcional..."),
-                new Habitacion("Sencilla Básica", "images/habitaciones/sencillaBasica.jpg", "$60", "Con lo esencial..."),
-                new Habitacion("Ajedrez Básica", "images/habitaciones/ajedrez.jpeg", "$45", "Cómete a la reina."),
-                new Habitacion("Simple", "images/habitaciones/runaway.jpeg", "$50", "Sencilla y funcional."),
-                new Habitacion("Pareja", "images/habitaciones/taylor.jpeg", "$55", "Perfecta para una pareja.")
+                new Habitacion("Sencilla Básica", "images/habitaciones/sencillaBasica.jpg", "$60", "Con lo esencial...")
         );
 
         habitacionesClaseC = List.of(
                 new Habitacion("Habitación Doble", "images/habitaciones/miniSuite.png", "$75", "Para dos personas..."),
                 new Habitacion("Familiar Compacta", "images/habitaciones/familiarCompacta.jpg", "$85", "Cama doble..."),
-                new Habitacion("Ejecutiva", "images/habitaciones/suite.jpg", "$90", "Espacio moderno..."),
-                new Habitacion("Habitación Ice Cream", "images/habitaciones/crema.jpeg", "$75", "Para dos personas..."),
-                new Habitacion("Habitación Metal", "images/habitaciones/metall.jpeg", "$85", "Cama doble..."),
-                new Habitacion("Habitación Gamer", "images/habitaciones/gamer.jpeg", "$90", "Espacio moderno...")
+                new Habitacion("Ejecutiva", "images/habitaciones/suite.jpg", "$90", "Espacio moderno...")
         );
 
         habitacionesClaseB = List.of(
                 new Habitacion("Deluxe Doble", "images/habitaciones/miniSuite.png", "$100", "Vista al jardín..."),
                 new Habitacion("Triple Familiar", "images/habitaciones/habitacionLujo.jpg", "$110", "Ideal para familias..."),
-                new Habitacion("Confort Premium", "images/habitaciones/habitacionBoutique.jpeg", "$120", "Comodidad garantizada..."),
-                new Habitacion("Lobo Solitario", "images/habitaciones/b2.jpeg", "$100", "La mejor para entrar a tu mundo..."),
-                new Habitacion("Habitación Tierra Pasión", "images/habitaciones/b3.jpeg", "$110", "Lo mejor para tí ..."),
-                new Habitacion("Habitación del Cielo", "images/habitaciones/b1.jpeg", "$120", "Ideal para parejas...")
+                new Habitacion("Confort Premium", "images/habitaciones/habitacionBoutique.jpeg", "$120", "Comodidad garantizada...")
         );
 
         habitacionesClaseA = List.of(
                 new Habitacion("Suite Junior", "images/habitaciones/suitePremium.png", "$130", "Estilo y confort..."),
                 new Habitacion("Suite Ejecutiva", "images/habitaciones/suiteEjecutiva.jpg", "$150", "Perfecta para ejecutivos..."),
-                new Habitacion("Suite Panorámica", "images/habitaciones/a5.jpeg", "$200", "Vistas increíbles..."),
-                new Habitacion("Suite Albañilera", "images/habitaciones/a1.jpeg", "$130", "Estilo y confort..."),
-                new Habitacion("Suite Thor", "images/habitaciones/a2.jpeg", "$150", "Perfecta para amantes a los Comic..."),
-                new Habitacion("Suite Lava", "images/habitaciones/a3.jpeg", "$200", "Para personas con gran imaginación...")
+                new Habitacion("Suite Panorámica", "images/habitaciones/matrimonial.jpeg", "$200", "Vistas increíbles...")
         );
 
         habitacionesClaseVIP = List.of(
                 new Habitacion("Presidencial", "images/habitaciones/suitePresidencial.png", "$250", "La más exclusiva..."),
                 new Habitacion("Royal Suite", "images/habitaciones/suiteVip.jpeg", "$300", "Elegancia total..."),
-                new Habitacion("VIP Total", "images/habitaciones/topSuite.jpg", "$350", "Lujo sin igual..."),
-                new Habitacion("VIP Montaña", "images/habitaciones/vip1.jpeg", "$500", "La más exclusiva..."),
-                new Habitacion("VIP Futurista", "images/habitaciones/vip2.jpeg", "$600", "Elegancia total..."),
-                new Habitacion("VIP ACUAMAN", "images/habitaciones/vip4.jpeg", "$750", "Lujo sin igual...")
+                new Habitacion("VIP Total", "images/habitaciones/topSuite.jpg", "$350", "Lujo sin igual...")
         );
 
         responsiveOptions = new ArrayList<>();
@@ -82,6 +64,7 @@ public class CarouselHabitacionesView implements Serializable {
         responsiveOptions.add(new ResponsiveOption("560px", 1, 1));
     }
 
+    // Getters
     public List<Habitacion> getHabitacionesClaseD() { return habitacionesClaseD; }
     public List<Habitacion> getHabitacionesClaseC() { return habitacionesClaseC; }
     public List<Habitacion> getHabitacionesClaseB() { return habitacionesClaseB; }
@@ -89,11 +72,12 @@ public class CarouselHabitacionesView implements Serializable {
     public List<Habitacion> getHabitacionesClaseVIP() { return habitacionesClaseVIP; }
     public List<ResponsiveOption> getResponsiveOptions() { return responsiveOptions; }
 
+    // Clase interna
     public static class Habitacion {
-        private final String nombre;
-        private final String imagen;
-        private final String precio;
-        private final String descripcion;
+        private String nombre;
+        private String imagen;
+        private String precio;
+        private String descripcion;
 
         public Habitacion(String nombre, String imagen, String precio, String descripcion) {
             this.nombre = nombre;
@@ -102,8 +86,12 @@ public class CarouselHabitacionesView implements Serializable {
             this.descripcion = descripcion;
         }
 
-        public String getNombre() { return nombre; }
-        public String getImagen() { return imagen; }
+        public String getNombre() {
+            return nombre;
+        }
+        public String getImagen() {
+            return imagen;
+        }
         public String getPrecio() { return precio; }
         public String getDescripcion() { return descripcion; }
     }

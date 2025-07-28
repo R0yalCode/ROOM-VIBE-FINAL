@@ -1,5 +1,6 @@
 package edu.unl.cc.roomvibe.domain.common;
 
+import edu.unl.cc.roomvibe.domain.security.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+@Table(name = "PERSON")
 public class Person implements Serializable {
 
     @Id
@@ -26,6 +28,7 @@ public class Person implements Serializable {
     private LocalDate birthDate;
 
     @NotNull @NotEmpty
+    @Column(unique = true, nullable = false)
     @Email(message = "Formato de correo electrónico no válido")
     private String email;
 

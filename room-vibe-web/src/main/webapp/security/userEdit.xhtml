@@ -10,11 +10,11 @@
 
     <f:metadata>
         <f:viewParam name="id" value="#{userHome.selectedUserId}" />
-        <f:event listener="#{userHome.loadUser}" type="preRenderView" />
+        <f:event type="preRenderView" listener="#{userHome.loadUser}" />
     </f:metadata>
 
     <ui:define name="title-view">
-        J-Brew 1.0 - #{userHome.user.id != null ? 'Editar' : 'Crear'} usuario
+        Room-Vibe 1.0 - #{userHome.user.id != null ? 'Editar' : 'Crear'} usuario
     </ui:define>
 
     <ui:define name="content">
@@ -43,6 +43,19 @@
                                                   validatorMessage="La contraseña debe tener al menos 8 caracteres" />
                                 <p:clientValidator />
                             </p:password>
+
+                            <p:outputLabel for="role" value="Rol asignado:" />
+                            <p:selectOneMenu id="role"
+                                             value="#{userHome.rolSeleccionado}"
+                                             required="true"
+                                             requiredMessage="Debe seleccionar un rol"
+                                             styleClass="w-full">
+                                <f:selectItem itemLabel="-- Seleccione un rol --" itemValue="" noSelectionOption="true" />
+                                <f:selectItems value="#{userHome.rolesDisponibles}"
+                                               var="rol"
+                                               itemValue="#{rol.name}"
+                                               itemLabel="#{rol.name}" />
+                            </p:selectOneMenu>
                         </h:panelGrid>
                     </p:panel>
 
@@ -78,14 +91,13 @@
                                          required="true">
                             </p:inputText>
 
-                            <p:outputLabel for="gender" value="Género:" />
-                            <p:selectOneMenu id="gender"
-                                             value="#{userHome.user.person.gender}">
-                                <f:selectItem itemLabel="-- Seleccione --" noSelectionOption="true" />
+                            <p:outputLabel for="gender" value="Género:"/>
+                            <p:selectOneMenu id="gender" value="#{userHome.user.person.gender}">
+                                <f:selectItem itemLabel="-- Seleccione --" noSelectionOption="true"/>
                                 <f:selectItems value="#{factoryListApp.genderOptions}"
-                                               var="gender"
-                                               itemValue="#{gender}"
-                                               itemLabel="#{gender == 'OTHERS' ? 'Otros' : (gender == 'MALE' ? 'Masculino' : 'Femenino')}" />
+                                               var="gender" itemValue="#{gender}"
+                                               itemLabel="#{gender == 'OTHERS' ? 'Otros' : (gender == 'MALE' ? 'Masculino' : 'Femenino')}"/>
+
                             </p:selectOneMenu>
                         </h:panelGrid>
                     </p:panel>

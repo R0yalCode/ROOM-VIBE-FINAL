@@ -10,11 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *author:
- * Steeven Pardo
- * Juan Calopino
- * Royel Jima
- * Daniel Savedra
+ * @author Steeven Pardo, Juan Calopino, Royel Jima, Daniel Savedra
+ * @version 1.0
  */
 
 @Named

@@ -1,86 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-            <!DOCTYPE html>
-            <html xmlns="http://www.w3.org/1999/xhtml"
-                  xmlns:h="jakarta.faces.html"
-                  xmlns:ui="jakarta.faces.facelets"
-                  xmlns:p="primefaces"
-                  xmlns:f="jakarta.faces.core">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces"
+      xmlns:f="jakarta.faces.core">
 
-            <ui:composition template="WEB-INF/templates/base.xhtml">
-                <ui:define name="title-view">
-                    Contacto - Room-Vibe
-                </ui:define>
-                <ui:define name="content">
-                    <h:outputStylesheet library="css" name="contacto.css" />
+<ui:composition template="WEB-INF/templates/base.xhtml">
+    <ui:define name="title-view">
+        Contacto - Room-Vibe
+    </ui:define>
+    <ui:define name="content">
+        <style>
 
-                    <h:form>
-                        <p:growl id="mensajes" showDetail="true" life="4000" />
+            /*Fondo del panel de contacto*/
+            body {
+                background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            }
+            .contact-card {
+                max-width: 500px;
+                margin: 30px auto;
+                padding: 2.5em 2em;
+                background: #fff;
+                border-radius: 18px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+                transition: box-shadow 0.3s;
+            }
+            .contact-card:hover {
+                box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+            }
+            .contact-heading {
+                text-align: center;
+                color: #0078d7;
+                font-size: 2.2em;
+                font-weight: 700;
+                margin-bottom: 0.5em;
+                letter-spacing: 1px;
+            }
+            .contact-description {
+                text-align: center;
+                font-size: 1.15em;
+                color: #444;
+                margin-bottom: 1.5em;
+            }
+            .contact-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2em;
+                margin-top: 2em;
+            }
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                background: #f6f8fa;
+                border-radius: 12px;
+                padding: 0.8em 1em;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+                transition: background 0.2s;
+            }
+            .contact-item:hover {
+                background: #eaf4fb;
+            }
+            .contact-icon {
+                font-size: 2.2em;
+                transition: transform 0.2s;
+            }
+            .contact-item:hover .contact-icon {
+                transform: scale(1.15) rotate(-8deg);
+            }
+            .contact-link {
+                font-size: 1.1em;
+                color: #222;
+            }
+            .contact-link a {
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+            .contact-link a:hover {
+                text-decoration: underline;
+                color: #005fa3 !important;
+            }
+            .return-button {
+                text-align: center;
+                margin-top: 2.5em;
+            }
+            /* Sugerencia input */
+            .p-inputtext {
+                border-radius: 8px !important;
+                border: 1px solid #cfd8dc !important;
+                padding: 0.7em !important;
+                font-size: 1em !important;
+                transition: border-color 0.2s;
+            }
+            .p-inputtext:focus {
+                border-color: #0078d7 !important;
+                box-shadow: 0 0 0 2px #e0eafc;
+            }
+            .p-button {
+                border-radius: 8px !important;
+                font-size: 1.05em !important;
+                padding: 0.7em 1.5em !important;
+            }
+            .p-button-secondary {
+                background: linear-gradient(90deg, #0078d7 0%, #00c6fb 100%) !important;
+                color: #fff !important;
+                border: none !important;
+            }
+        </style>
 
-                        <div class="card contact-card">
-                            <h2 class="contact-heading">¡Contáctanos!</h2>
-                            <p class="contact-description">
-                                ¿Tienes dudas, sugerencias o necesitas ayuda? <br/>
-                                Estamos para servirte en cualquiera de nuestros canales:
-                            </p>
+        <h:form>
+            <p:growl id="mensajes" showDetail="true" life="4000" />
 
-                            <!-- Campo de sugerencia con AJAX -->
-                            <div style="margin-bottom:1.5em;">
-                                <p:outputLabel value="¿Tienes alguna sugerencia?" for="sugerencia" style="font-weight:500;"/>
-                                <p:inputText id="sugerencia" value="#{contactoBean.sugerencia}" label="Sugerencia" style="width:100%;">
-                                    <p:ajax event="blur" update="mensajes" listener="#{contactoBean.validarSugerencia}" />
-                                </p:inputText>
-                                <p:commandButton value="Enviar sugerencia"
-                                                 action="#{contactoBean.enviar}"
-                                                 ajax="true"
-                                                 update="mensajes"
-                                                 icon="pi pi-check"
-                                                 style="margin-top:0.7em;"/>
-                            </div>
+            <div class="card contact-card">
+                <h2 class="contact-heading">¡Contáctanos!</h2>
+                <p class="contact-description">
+                    ¿Tienes dudas, sugerencias o necesitas ayuda? <br/>
+                    Estamos para servirte en cualquiera de nuestros canales:
+                </p>
 
-                            <div class="contact-list">
-                                <div class="contact-item">
-                                    <i class="pi pi-envelope contact-icon" style="color:#d93025;"></i>
-                                    <span class="contact-link">
-                                        <b>Email:</b>
-                                        <a href="mailto:roomvibe.hotel@gmail.com" style="color:#0078d7;">roomvibe.hotel@gmail.com</a>
-                                    </span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="pi pi-phone contact-icon" style="color:#0078d7;"></i>
-                                    <span class="contact-link">
-                                        <b>Teléfono fijo:</b>
-                                        <a href="tel:+59322223333" style="color:#0078d7;">+593 2 222 3333</a>
-                                    </span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="pi pi-whatsapp contact-icon" style="color:#25d366;"></i>
-                                    <span class="contact-link">
-                                        <b>WhatsApp:</b>
-                                        <a href="https://wa.me/593983619992?text=Quiero%20conocer%20más%20información%20acerca%20del%20hotel"
-                                           target="_blank" style="color:#25d366;">+593 983 619 992</a>
-                                    </span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="pi pi-instagram contact-icon" style="color:#e1306c;"></i>
-                                    <span class="contact-link">
-                                        <b>Instagram:</b>
-                                        <a href="https://instagram.com/roomvibe.hotel" target="_blank" style="color:#e1306c;">@roomvibe.hotel</a>
-                                    </span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="pi pi-facebook contact-icon" style="color:#1877f3;"></i>
-                                    <span class="contact-link">
-                                        <b>Facebook:</b>
-                                        <a href="https://facebook.com/roomvibe.hotel" target="_blank" style="color:#1877f3;">RoomVibe Hotel</a>
-                                    </span>
-                                </div>
-                            </div>
+                <!-- Campo de sugerencia con AJAX -->
+                <div style="margin-bottom:1.5em;">
+                    <p:outputLabel value="¿Tienes alguna sugerencia?" for="sugerencia" style="font-weight:500;"/>
+                    <p:inputText id="sugerencia" value="#{contactoBean.sugerencia}" label="Sugerencia" style="width:100%;">
+                        <p:ajax event="blur" update="mensajes" listener="#{contactoBean.validarSugerencia}" />
+                    </p:inputText>
+                    <p:commandButton value="Enviar sugerencia"
+                                     action="#{contactoBean.enviar}"
+                                     ajax="true"
+                                     update="mensajes"
+                                     icon="pi pi-check"
+                                     style="margin-top:0.7em;"/>
+                </div>
 
-                            <div class="return-button">
-                                <p:button value="Volver al inicio" icon="pi pi-home" outcome="index" styleClass="p-button-secondary"/>
-                            </div>
-                        </div>
-                    </h:form>
-                </ui:define>
-            </ui:composition>
-            </html>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <i class="pi pi-envelope contact-icon" style="color:#d93025;"></i>
+                        <span class="contact-link">
+                            <b>Email:</b>
+                            <a href="mailto:roomvibe.hotel@gmail.com" style="color:#0078d7;">roomvibe.hotel@gmail.com</a>
+                        </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="pi pi-phone contact-icon" style="color:#0078d7;"></i>
+                        <span class="contact-link">
+                            <b>Teléfono fijo:</b>
+                            <a href="tel:+59322223333" style="color:#0078d7;">+593 2 222 3333</a>
+                        </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="pi pi-whatsapp contact-icon" style="color:#25d366;"></i>
+                        <span class="contact-link">
+                            <b>WhatsApp:</b>
+                            <a href="https://wa.me/593983619992?text=Quiero%20conocer%20más%20información%20acerca%20del%20hotel"
+                               target="_blank" style="color:#25d366;">+593 983 619 992</a>
+                        </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="pi pi-instagram contact-icon" style="color:#e1306c;"></i>
+                        <span class="contact-link">
+                            <b>Instagram:</b>
+                            <a href="https://instagram.com/roomvibe.hotel" target="_blank" style="color:#e1306c;">@roomvibe.hotel</a>
+                        </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="pi pi-facebook contact-icon" style="color:#1877f3;"></i>
+                        <span class="contact-link">
+                            <b>Facebook:</b>
+                            <a href="https://facebook.com/roomvibe.hotel" target="_blank" style="color:#1877f3;">RoomVibe Hotel</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="return-button">
+                    <p:button value="Volver al inicio" icon="pi pi-home" outcome="index" styleClass="p-button-secondary"/>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

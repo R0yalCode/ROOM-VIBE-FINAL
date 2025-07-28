@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/base.xhtml">
+
+   <ui:define name="title-view">
+      Room-Vibe 1.0 - Crear o editar reserva
+   </ui:define>
+
+   <ui:define name="content">
+      <h:form id="reservaEditForm" styleClass="ui-fluid">
+
+         <p:growl id="mensajes" showDetail="true" />
+
+         <p:panel header="#{reservaBean.reservaSeleccionada.id == null ? 'Nueva reserva' : 'Editar reserva'}">
+
+            <p:panelGrid columns="2" styleClass="ui-panelgrid-2 ui-fluid" columnClasses="ui-grid-col-4, ui-grid-col-8">
+
+               <p:outputLabel for="nombre" value="Nombre:" />
+               <p:inputText id="nombre" value="#{reservaBean.reservaSeleccionada.nombre}" required="true" />
+
+               <p:outputLabel for="email" value="Email:" />
+               <p:inputText id="email" value="#{reservaBean.reservaSeleccionada.email}" required="true" />
+
+               <p:outputLabel for="habitacion" value="Tipo habitación:" />
+               <p:selectOneMenu id="habitacion" value="#{reservaBean.reservaSeleccionada.tipoHabitacion}">
+                  <f:selectItem itemLabel="Seleccione..." itemValue="" />
+                  <f:selectItems value="#{reservaBean.habitacionesDisponibles}" />
+               </p:selectOneMenu>
+
+               <p:outputLabel for="personas" value="Personas:" />
+               <p:spinner id="personas" value="#{reservaBean.reservaSeleccionada.personas}" min="1" max="10" />
+
+               <p:outputLabel for="entrada" value="Fecha entrada:" />
+               <p:datePicker id="entrada" value="#{reservaBean.reservaSeleccionada.fechaEntrada}" pattern="dd/MM/yyyy" showIcon="true" />
+
+               <p:outputLabel for="salida" value="Fecha salida:" />
+               <p:datePicker id="salida" value="#{reservaBean.reservaSeleccionada.fechaSalida}" pattern="dd/MM/yyyy" showIcon="true" />
+            </p:panelGrid>
+
+            <p:separator />
+
+            <p:outputPanel styleClass="ui-g">
+               <ui:fragment rendered="#{reservaBean.reservaSeleccionada.id == null}">
+                  <p:commandButton value="Guardar"
+                                   action="#{reservaBean.reservar}"
+                                   icon="pi pi-save"
+                                   update="mensajes"
+                                   ajax="true"
+                                   styleClass="ui-button-success ui-g-2" />
+               </ui:fragment>
+
+               <ui:fragment rendered="#{reservaBean.reservaSeleccionada.id != null}">
+                  <p:commandButton value="Actualizar"
+                                   action="#{reservaBean.editar}"
+                                   icon="pi pi-save"
+                                   update="mensajes"
+                                   ajax="true"
+                                   styleClass="ui-button-warning ui-g-2" />
+               </ui:fragment>
+
+               <p:commandButton value="Cancelar"
+                                action="/reservas/reservaList.xhtml?faces-redirect=true"
+                                icon="pi pi-times"
+                                styleClass="ui-button-secondary ui-g-2"
+                                ajax="false"
+                                immediate="true" />
+            </p:outputPanel>
+
+         </p:panel>
+
+      </h:form>
+   </ui:define>
+
+</ui:composition>
+</html>
