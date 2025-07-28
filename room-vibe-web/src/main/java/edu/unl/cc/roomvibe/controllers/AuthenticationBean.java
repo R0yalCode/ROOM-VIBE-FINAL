@@ -16,6 +16,11 @@ import jakarta.validation.constraints.Size;
 
 import java.util.logging.Logger;
 
+/**
+ * @author Steeven Pardo, Juan Calopino, Royel Jima, Daniel Savedra
+ * @version 1.0
+ */
+
 @Named
 @ViewScoped
 public class AuthenticationBean implements java.io.Serializable{
@@ -47,7 +52,7 @@ public class AuthenticationBean implements java.io.Serializable{
             User user = securityFacade.authenticate(username, password);
             setHttpSession(user);
 
-            FacesUtil.addMessageAndKeep(FacesMessage.SEVERITY_INFO, "Aviso", "Bienvenido " + user.getName() + " a la aplicación Jbrew.");
+            FacesUtil.addMessageAndKeep(FacesMessage.SEVERITY_INFO, "Aviso", "Bienvenido " + user.getName() + " a la aplicación Room Vibe.");
             //FacesMessage fc = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", "Bienvenido " + user.getName() + " a la aplicación Jbrew.");
             //facesContext.addMessage(null, fc);
             //facesContext.getExternalContext().getFlash().setKeepMessages(true);

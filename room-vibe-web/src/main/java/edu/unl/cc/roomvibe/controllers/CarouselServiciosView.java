@@ -9,6 +9,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Steeven Pardo, Juan Calopino, Royel Jima, Daniel Savedra
+ * @version 1.0
+ */
+
 @Named
 @ViewScoped
 public class CarouselServiciosView implements Serializable {
@@ -56,9 +61,20 @@ public class CarouselServiciosView implements Serializable {
             this.descripcion = descripcion;
         }
 
-        public String getNombre() { return nombre; }
-        public String getImagen() { return imagen; }
-        public String getPrecio() { return precio; }
-        public String getDescripcion() { return descripcion; }
+        public String getNombre() {
+            return nombre;
+        }
+
+        public String getImagen() {
+            return imagen;
+        }
+
+        public String getPrecio() {
+            return precio;
+        }
+
+        public String getDescripcion() {
+            return descripcion;
+        }
     }
 }

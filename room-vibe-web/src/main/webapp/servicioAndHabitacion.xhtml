@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Room-Vibe 1.0 - Servicios del Hotel</title>
+    <style type="">
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f9ff;
+            color: #002244;
+        }
+        h1 {
+            font-size: 40px;
+            color: #003366;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #004080;
+            margin-top: 30px;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #0055aa;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .servicio {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .servicio h3 {
+            margin-bottom: 15px;
+        }
+
+        .servicio img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #0077cc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #e6f2ff;
+            border: 1px solid #b3d7ff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .titulo-principal {
+            text-align: center;
+            font-size: 36px;
+            color: #004080;
+            margin-bottom: 50px;
+        }
+
+        .clase-titulo {
+            font-size: 28px;
+            color: #0066cc;
+            border-left: 6px solid #0077cc;
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+        }
+
+        .rango-precio {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            padding-left: 21px;
+        }
+
+        .servicios-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .servicio-card {
+            background-color: #ffffff;
+            border: 1px solid #cce0ff;
+            border-radius: 15px;
+            width: 340px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .servicio-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .contenido {
+            padding: 20px;
+        }
+
+        .titulo-servicio {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0055aa;
+            margin-bottom: 10px;
+        }
+
+        .descripcion-corta {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #0088cc;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .servicios-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .servicio-card {
+                width: 90%;
+            }
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <f:view>
+        <div class="container">
+            <h1 class="titulo-principal">Habitaciones y Servicios</h1>
+
+            <!-- Clase D -->
+            <div class="clase-titulo">Clase D</div>
+            <div class="rango-precio">Desde $45 hasta $60 por noche</div>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <img src="images/habitaciones/sencilla.jpg" alt="Habitación Simple"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Habitación Simple</div>
+                        <div class="descripcion-corta">
+                            Ideal para viajeros que buscan comodidad básica. Cama individual, TV y WiFi.
+                        </div>
+                        <div class="precio">$50 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/economica.jpg" alt="Económica Individual"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Económica Individual</div>
+                        <div class="descripcion-corta">
+                            Espacio funcional, escritorio, ducha caliente y ventilación natural.
+                        </div>
+                        <div class="precio">$55 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/sencillaBasica.jpg" alt="Sencilla Básica"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Sencilla Básica</div>
+                        <div class="descripcion-corta">
+                            Con lo esencial para una estadía breve. Baño privado y armario.
+                        </div>
+                        <div class="precio">$60 / noche</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clase C -->
+            <div class="clase-titulo">Clase C</div>
+            <div class="rango-precio">Desde $65 hasta $90 por noche</div>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <img src="images/habitaciones/doble.jpg" alt="Habitación Doble"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Habitación Doble</div>
+                        <div class="descripcion-corta">
+                            Para dos personas, cama matrimonial, aire acondicionado y TV por cable.
+                        </div>
+                        <div class="precio">$75 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/familiarCompacta.jpg" alt="Familiar Compacta"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Familiar Compacta</div>
+                        <div class="descripcion-corta">
+                            Cama doble + cama adicional, ideal para familias pequeñas.
+                        </div>
+                        <div class="precio">$85 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/suite.jpg" alt="Ejecutiva"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Ejecutiva</div>
+                        <div class="descripcion-corta">
+                            Espacio moderno con escritorio, buena para viajes de negocios.
+                        </div>
+                        <div class="precio">$90 / noche</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clase B -->
+            <div class="clase-titulo">Clase B</div>
+            <div class="rango-precio">Desde $95 hasta $120 por noche</div>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <img src="images/habitaciones/miniSuite.png" alt="Mini Suite"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Mini Suite</div>
+                        <div class="descripcion-corta">
+                            Espacio más amplio, cama king, minibar y decoración acogedora.
+                        </div>
+                        <div class="precio">$105 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/habitacionLujo.jpg" alt="De Lujo"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Habitación de Lujo</div>
+                        <div class="descripcion-corta">
+                            Diseño elegante, balcón con vista y amenidades superiores.
+                        </div>
+                        <div class="precio">$115 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/habitacionBoutique.jpeg" alt="Boutique"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Boutique</div>
+                        <div class="descripcion-corta">
+                            Estilo personalizado, baño de mármol y área de descanso.
+                        </div>
+                        <div class="precio">$120 / noche</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clase A -->
+            <div class="clase-titulo">Clase A</div>
+            <div class="rango-precio">Desde $130 hasta $200 por noche</div>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <img src="images/habitaciones/suitePremium.png" alt="Suite Premium"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Suite Premium</div>
+                        <div class="descripcion-corta">
+                            Amplia sala, cocina pequeña, baño con hidromasaje y vista al mar.
+                        </div>
+                        <div class="precio">$150 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/matrimonial.jpeg" alt="Suite Matrimonial"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Suite Matrimonial</div>
+                        <div class="descripcion-corta">
+                            Romántica, equipada con jacuzzi y decoración exclusiva.
+                        </div>
+                        <div class="precio">$170 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/suiteEjecutiva.jpg" alt="Suite Ejecutiva"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Suite Ejecutiva</div>
+                        <div class="descripcion-corta">
+                            Ideal para empresarios exigentes. Espacio y confort asegurado.
+                        </div>
+                        <div class="precio">$200 / noche</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clase VIP -->
+            <div class="clase-titulo">Clase VIP</div>
+            <div class="rango-precio">Desde $250 hasta $350 por noche</div>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <img src="images/habitaciones/suiteVip.jpeg" alt="Suite VIP"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Suite VIP</div>
+                        <div class="descripcion-corta">
+                            Experiencia de lujo total. Sala, comedor, cocina, y mayordomo.
+                        </div>
+                        <div class="precio">$300 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/suitePresidencial.png" alt="Suite Presidencial"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Suite Presidencial</div>
+                        <div class="descripcion-corta">
+                            3 ambientes privados, oficina, jacuzzi doble y seguridad privada.
+                        </div>
+                        <div class="precio">$350 / noche</div>
+                    </div>
+                </div>
+                <div class="servicio-card">
+                    <img src="images/habitaciones/topSuite.jpg" alt="Rooftop Suite"/>
+                    <div class="contenido">
+                        <div class="titulo-servicio">Rooftop Suite</div>
+                        <div class="descripcion-corta">
+                            Terraza panorámica privada, bar personal y ambientación exclusiva.
+                        </div>
+                        <div class="precio">$320 / noche</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:view>
+</h:body>
+</html>
