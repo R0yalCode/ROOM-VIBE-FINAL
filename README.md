@@ -141,27 +141,10 @@ mvn clean install
 ---
 
 ##  Roles del equipo
-
-
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
->>>>>>> origin/feature
-- ### [Steeven Pardo](https://github.com/Dan1el17) : Configuración y conexion con la base de datos.
-- ### [Royel Jima](https://github.com/R0yalCode) : Configuración en las vistas, cuando el usuario se va a registrar o iniciar secion.  
-- ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseño e implementacion de las vistas para que el cliente pueda elegir las habitaciones y visualizar los servicios.  
-- ### [Daniel Saavedra](https://github.com/Dan-San837) : Diseño de la vista principal (index) e implementación de clases complementarias para la misma. 
-<<<<<<< HEAD
-=======
-=======
 - ### [Steeven Pardo](https://github.com/Dan1el17) : Encargado de la configuración e integración de la base de datos, asegurando una conexión eficiente y segura entre la aplicación y el sistema de gestión de datos.
 - ### [Royel Jima](https://github.com/R0yalCode) : Responsable de la configuración de las vistas relacionadas con los procesos de registro e inicio de sesión de los usuarios. Revisor, utilizando gitflow para la revision del codigo de la implementaciond de cada participante, y su correcto flujo de trabajo en las diferentes ramas. 
 - ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseñó e implementó las vistas orientadas al cliente, permitiendo la selección de habitaciones y la visualización detallada de los servicios ofrecidos. 
 - ### [Daniel Saavedra](https://github.com/Dan-San837) : Lideró el diseño de la vista principal (index) del proyecto e implementó clases adicionales para complementar su funcionamiento. 
->>>>>>> origin/feature
-
->>>>>>> origin/feature
 
 ---
 
