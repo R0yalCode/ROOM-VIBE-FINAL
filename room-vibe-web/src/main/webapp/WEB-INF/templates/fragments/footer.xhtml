@@ -6,7 +6,7 @@
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="primefaces">
     <ui:composition>
-
+      
 <style>
     html, body {
     margin: 0;
@@ -14,14 +14,14 @@
     box-sizing: border-box;
     overflow-x: hidden;
 }
-</style>
+</style>    
 
 <footer style="background-color: #04034f; color: white; padding: 2rem 0 0 0; width: 100%; margin: 0;">
     <div style="max-width: 1200px; margin: auto; padding: 0 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10rem;">
 
         <div style="flex: 1; min-width: 250px;">
             <div style="margin-bottom: 1rem;">
-                <p:graphicImage rl="#{request.contextPath}/resources/images/room-vibe-logo.jpg" alt="Logo RoomVibe" style="height: 60px;" />
+                <p:graphicImage url="images/room-vibe-logo.jpg" alt="Logo RoomVibe" style="height: 60px;" />
             </div>
             <p><i class="pi pi-envelope" style="margin-right: 0.5rem;"></i> info@roomvibe.com</p>
             <hr style="border-color: #ffffff33; margin: 1rem 0;" />
@@ -54,19 +54,19 @@
         <div style="flex: 1; min-width: 250px;">
             <h3 style="margin-bottom: 1rem;">Enlaces útiles</h3>
             <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><a href="#{request.contextPath}/reserva.xhtml?faces-redirect=true">Reserva ya!!</a></li>
+                <li><a href="/reserva.xhtml?faces-redirect=true" style="color: white; text-decoration: none;">Reserva ya!!</a></li>
                 <li><a href="#" style="color: white; text-decoration: none;">Preguntas frecuentes</a></li>
                 <li><a href="#" style="color: white; text-decoration: none;">Términos y condiciones</a></li>
                 <li><a href="#" style="color: white; text-decoration: none;">Políticas de privacidad</a></li>
             </ul>
         </div>
 
-    </div>
+    </div>  
 </footer>
 
 <div style="background-color: #23217a; padding: 1rem 0; width: 100%; margin: 0;">
     <div style="max-width: 1200px; margin: auto; text-align: center;">
-        <p:graphicImage url="#{request.contextPath}/resources/images/room-vibe-logo.jpg" alt="logo" height="25" />
+        <p:graphicImage url="../../../images/room-vibe-logo.jpg" alt="logo" height="25" />
         <p style="font-size: small; color: #ffffff; margin: 0;">© 2025 Mi Empresa - Licenced by GPLV2</p>
     </div>
 </div>

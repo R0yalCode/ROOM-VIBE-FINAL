@@ -1,5 +1,10 @@
 package edu.unl.cc.roomvibe.faces;
 
+/**
+ * @author Steeven Pardo, Juan Calopino, Royel Jima, Daniel Savedra
+ * @version 1.0
+ */
+
 public class Product {
     
     private String name;

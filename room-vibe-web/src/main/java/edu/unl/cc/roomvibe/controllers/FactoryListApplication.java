@@ -9,6 +9,7 @@ import java.io.Serial;
 import java.util.Arrays;
 import java.util.List;
 
+
 @Named("factoryListApp")
 @ApplicationScoped
 public class FactoryListApplication implements java.io.Serializable{

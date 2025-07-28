@@ -20,7 +20,6 @@ public class RoleRepository {
         return new HashSet<>(crudService.findWithQuery("SELECT r FROM Role r"));
     }
 
-
     public Role find(String name){
         String sql = "SELECT * FROM ROLE WHERE name LIKE ?";
         Query query = crudService.createNativeQuery(sql, Role.class);

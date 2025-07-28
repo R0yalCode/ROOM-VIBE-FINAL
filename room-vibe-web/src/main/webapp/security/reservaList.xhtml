@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/base.xhtml">
+
+    <ui:define name="title-view">
+        Room-Vibe 1.0 - Reservas realizadas
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="reservaListForm">
+
+            <p:growl id="messages" showDetail="true" />
+
+            <p:commandButton icon="pi pi-pencil"
+                             title="Editar"
+                             action="#{reservaBean.redirigirEditar(_reserva.id)}"
+                             process="@this"
+                             styleClass="ui-button-warning rounded-button" />
+
+            <p:panel header="Reservas registradas">
+                <p:outputPanel styleClass="mb-3">
+                    <p:inputText id="criterio"
+                                 value="#{reservaBean.criterio}"
+                                 placeholder="Buscar por nombre o email..."
+                                 styleClass="mr-2" />
+
+                    <p:commandButton id="buscar"
+                                     icon="pi pi-search"
+                                     value="Buscar"
+                                     action="#{reservaBean.buscar}"
+                                     update="reservaList reservaListForm:messages"
+                                     process="@form"
+                                     styleClass="ui-button-success mr-2" />
+
+                    <p:commandButton id="limpiar"
+                                     icon="pi pi-refresh"
+                                     value="Limpiar"
+                                     action="#{reservaBean.limpiar}"
+                                     update="reservaList criterio reservaListForm:messages"
+                                     process="@this"
+                                     styleClass="ui-button-secondary" />
+                </p:outputPanel>
+
+                <p:dataTable id="reservaList"
+                             value="#{reservaBean.listaReservas}"
+                             var="_reserva"
+                             paginator="true"
+                             rows="10"
+                             rowIndexVar="index"
+                             emptyMessage="No hay reservas registradas"
+                             responsiveLayout="scroll"
+                             rendered="true">
+
+                    <p:column headerText="Editar" style="text-align:center;">
+                        <h:link outcome="/security/reservaEdit.xhtml" styleClass="ui-button-warning rounded-button">
+                            <i class="pi pi-pencil" style="font-size:1.2rem;"></i>
+                            <f:param name="id" value="#{_reserva.id}" />
+                        </h:link>
+                    </p:column>
+
+                    <p:column headerText="#" style="width:40px;">
+                        <h:outputText value="#{index + 1}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{_reserva.nombre}" />
+                    </p:column>
+
+                    <p:column headerText="Email">
+                        <h:outputText value="#{_reserva.email}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo habitación">
+                        <h:outputText value="#{_reserva.tipoHabitacion}" />
+                    </p:column>
+
+                    <p:column headerText="Personas">
+                        <h:outputText value="#{_reserva.personas}" />
+                    </p:column>
+
+                    <p:column headerText="Entrada">
+                        <h:outputText value="#{_reserva.fechaEntrada}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Salida">
+                        <h:outputText value="#{_reserva.fechaSalida}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Creada el">
+                        <h:outputText value="#{_reserva.fechaCreacion}">
+                            <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Acción" style="text-align:center;">
+                        <p:commandButton icon="pi pi-eye"
+                                         title="Ver detalles"
+                                         ajax="true"
+                                         action="#{reservaBean.verDetalle(_reserva)}"
+                                         process="@this"
+                                         update="reservaListForm:messages"
+                                         styleClass="ui-button-info rounded-button" />
+                    </p:column>
+
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+</html>

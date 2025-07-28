@@ -10,6 +10,11 @@ import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
+/**
+ * @author Steeven Pardo, Juan Calopino, Royel Jima, Daniel Savedra
+ * @version 1.0
+ */
+
 @Named
 @ViewScoped
 public class CarouselView implements Serializable {
@@ -21,12 +26,12 @@ public class CarouselView implements Serializable {
     @PostConstruct
     public void init() {
         products = new ArrayList<>();
-        products.add(new Product("Ajedrez", "ajedrez.jpeg", 80, "Disponible"));
-        products.add(new Product("Gamer", "gamer.jpeg", 120, "Disponible"));
-        products.add(new Product("Batman", "b2.jpeg", 200, "Disponible"));
-        products.add(new Product("Acuaman", "vip4.jpeg", 150, "Ocupado"));
-        products.add(new Product("volcan activo", "vip1.jpeg", 180, "Ocupado"));
-        products.add(new Product("Futurista", "vip2.jpeg", 220, "Ocupado"));
+        products.add(new Product("Habitación Estándar", "habitacion1.jpg", 80, "Disponible"));
+        products.add(new Product("Habitación Doble", "habitacion2.jpg", 120, "Ocupado"));
+        products.add(new Product("Suite Familiar", "habitacion3.jpg", 200, "Disponible"));
+        products.add(new Product("Habitación con Vista al Mar", "habitacion4.jpg", 150, "Disponible"));
+        products.add(new Product("Habitación Deluxe", "habitacion5.jpg", 180, "Ocupado"));
+        products.add(new Product("Habitación Ejecutiva", "habitacion6.jpg", 220, "Disponible"));
     }
 
     public List<Product> getProducts() {
