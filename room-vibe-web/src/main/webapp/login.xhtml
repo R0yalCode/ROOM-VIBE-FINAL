@@ -1,158 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-                <!DOCTYPE html>
-        <html xmlns="http://www.w3.org/1999/xhtml"
-              xmlns:h="jakarta.faces.html"
-              xmlns:f="jakarta.faces.core"
-              xmlns:p="http://primefaces.org/ui">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
 
-        <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
-            <h:head>
-                <title>J-Brews 1.0 - Iniciar Sesión</title>
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <title>J-Brews 1.0 - Iniciar Sesión</title>
+        <h:outputStylesheet library="css" name="login.css"/>
+    </h:head>
 
-                <style>
-                    body {
-                        background: url('images/fondo.jpg') center/cover no-repeat fixed;
-                        font-family: 'Segoe UI', sans-serif;
-                        color: #333;
-                        margin: 0;
-                        padding: 0;
-                    }
+    <h:body>
+        <h:form id="loginForm">
+            <div class="login-card">
+                <div class="login-header">
+                    <p:graphicImage url="#{request.contextPath}/resources/images/roomvibe_logo.png"
+                                    style="width:100px; margin-bottom:1em;"/>
+                    <h2 style="color:#1E2A38;">Inicio de Sesión</h2>
+                    <h:outputText value="Accede con tus credenciales para administrar Room-Vibe"
+                                  style="color:#1E2A38;"/>
+                    <h:outputText value="“Tu descanso, nuestra prioridad.”" styleClass="frase-estilo"/>
+                </div>
 
-                    .login-card {
-                        max-width: 480px;
-                        margin: 3em auto;
-                        padding: 2em;
-                        background: rgba(255, 255, 255, 0.25);
-                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-                        border-radius: 16px;
-                        backdrop-filter: blur(10px);
-                        -webkit-backdrop-filter: blur(10px);
-                        border: 1px solid rgba(255, 255, 255, 0.18);
-                        animation: fadeInUp 0.8s ease-out;
-                    }
-
-                    .login-header {
-                        text-align: center;
-                        margin-bottom: 1.5em;
-                    }
-
-                    .frase-estilo {
-                        font-style: italic;
-                        color: #797a00;
-                        font-size: 1.05em;
-                        margin-top: 1em;
-                    }
-
-                    .login-form-group {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 1.2em;
-                        width: 100%;
-                    }
-
-                    .input-group {
-                        text-align: center;
-                        width: 100%;
-                    }
-
-                    .input-group label,
-                    .input-group .p-inputtext,
-                    .input-group .p-password {
-                        display: block;
-                        width: 100%;
-                        max-width: 90%;
-                        margin: 0 auto;
-                    }
-
-                    .p-inputtext-lg {
-                        font-size: 1.1em;
-                        padding: 0.6em;
-                        border-radius: 8px;
-                    }
-
-                    .ui-message {
-                        margin-top: 0.3em;
-                        color: #b71c1c;
-                        font-size: 0.9rem;
-                    }
-
-                    .login-buttons {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-top: 2em;
-                        gap: 1em;
-                    }
-
-                    .login-buttons .p-commandbutton,
-                    .login-buttons a {
-                        width: 80%;
-                        text-align: center;
-                    }
-
-                    @keyframes fadeInUp {
-                        from { opacity: 0; transform: translateY(20px); }
-                        to   { opacity: 1; transform: translateY(0); }
-                    }
-                </style>
-            </h:head>
-
-            <h:body>
-                <h:form id="loginForm">
-                    <div class="login-card">
-                        <div class="login-header">
-                            <p:graphicImage url="images/roomvibe_logo.png" style="width:100px; margin-bottom:1em;" />
-                            <h2 style="color:#1E2A38;">Inicio de Sesión</h2>
-                            <h:outputText value="Accede con tus credenciales para administrar Room-Vibe" style="color:#1E2A38;" />
-                            <h:outputText value="“Tu descanso, nuestra prioridad.”" styleClass="frase-estilo" />
-                        </div>
-
-                        <div class="login-form-group">
-                            <div class="input-group">
-                                <p:outputLabel for="username" value="Usuario" />
-                                <p:inputText id="username" value="#{authenticationBean.username}" required="true"
-                                             placeholder="Ingrese su usuario" styleClass="p-inputtext-lg">
-                                    <p:ajax event="blur" process="@this" update="usernameMsg" />
-                                </p:inputText>
-                                <p:message id="usernameMsg" for="username" display="icon" showDetail="true" />
-                            </div>
-
-                            <div class="input-group">
-                                <p:outputLabel for="password" value="Contraseña" />
-                                <p:password id="password" value="#{authenticationBean.password}" required="true"
-                                            placeholder="Ingrese su contraseña" toggleMask="true" redisplay="true"
-                                            feedback="true" promptLabel="Escribe una contraseña"
-                                            weakLabel="Débil" strongLabel="Fuerte"
-                                            styleClass="p-inputtext-lg">
-                                    <f:validateLength minimum="8" />
-                                    <p:clientValidator/>
-                                    <p:ajax event="blur" process="@this" update="passwordMsg" />
-                                </p:password>
-                                <p:message id="passwordMsg" for="password" display="icon" showDetail="true" />
-                            </div>
-                        </div>
-
-                        <div class="login-buttons">
-                            <p:commandButton value="Ingresar"
-                                             action="#{authenticationBean.login}"
-                                             icon="pi pi-sign-in"
-                                             ajax="false"
-                                             styleClass="p-button-rounded p-button-success" />
-
-                            <p:commandButton value="Cancelar"
-                                             action="index.xhtml?faces-redirect=true"
-                                             immediate="true"
-                                             icon="pi pi-times"
-                                             styleClass="p-button-rounded p-button-secondary" />
-
-                            <h:outputLink value="recuperar.xhtml"
-                                          style="margin-top:1em; color:#0078d7;">
-                                ¿Olvidaste tu contraseña?
-                            </h:outputLink>
-                        </div>
+                <div class="login-form-group">
+                    <div class="input-group">
+                        <p:outputLabel for="username" value="Usuario"/>
+                        <p:inputText id="username" value="#{authenticationBean.username}" required="true"
+                                     placeholder="Ingrese su usuario" styleClass="p-inputtext-lg">
+                            <p:ajax event="blur" process="@this" update="usernameMsg"/>
+                        </p:inputText>
+                        <p:message id="usernameMsg" for="username" display="icon" showDetail="true"/>
                     </div>
-                </h:form>
-            </h:body>
-        </f:view>
-        </html>
+
+                    <div class="input-group">
+                        <p:outputLabel for="password" value="Contraseña"/>
+                        <p:password id="password" value="#{authenticationBean.password}" required="true"
+                                    placeholder="Ingrese su contraseña" toggleMask="true" redisplay="true"
+                                    feedback="true" promptLabel="Escribe una contraseña"
+                                    weakLabel="Débil" strongLabel="Fuerte"
+                                    styleClass="p-inputtext-lg">
+                            <f:validateLength minimum="8"/>
+                            <p:clientValidator/>
+                            <p:ajax event="blur" process="@this" update="passwordMsg"/>
+                        </p:password>
+                        <p:message id="passwordMsg" for="password" display="icon" showDetail="true"/>
+                    </div>
+                </div>
+
+                <div class="login-buttons">
+                    <p:commandButton value="Ingresar"
+                                     action="#{authenticationBean.login}"
+                                     icon="pi pi-sign-in"
+                                     ajax="false"
+                                     styleClass="p-button-rounded p-button-success"/>
+
+                    <p:commandButton value="Cancelar"
+                                     action="index.xhtml?faces-redirect=true"
+                                     immediate="true"
+                                     icon="pi pi-times"
+                                     styleClass="p-button-rounded p-button-secondary"/>
+
+                    <h:outputLink value="recuperar.xhtml"
+                                  style="margin-top:1em; color:#0078d7;">
+                        ¿Olvidaste tu contraseña?
+                    </h:outputLink>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

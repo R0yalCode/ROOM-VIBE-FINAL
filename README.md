@@ -1,7 +1,7 @@
 #  ROOM VIBE
 
 > **Video de navegación del sistema:**  
-> 📺 [Ver demo en YouTube](https://youtu.be/pLuB8P3Vh8Y)  
+> 📺 [Ver demo en YouTube](https://www.youtube.com/watch?v=7RbMmlKqnqg)  
 
 ---
 
@@ -60,95 +60,61 @@ Este proyecto está desarrollado utilizando **Jakarta Faces (JSF)** con Facelets
 ## Estructura del Proyecto
 ```bash
 room-vibe-web/
- ├── Dockerfile
- ├── mvnw
- ├── mvnw.cmd
- ├── pom.xml
- ├── README.md
- └── src/
-     └── main/
-         ├── java/
-         │   └── edu/
-         │       └── unl/
-         │           └── cc/
-         │               └── jbrew/
-         │                   ├── bussiness/
-         │                   │   ├── SecurityFacade.java
-         │                   │   └── services/
-         │                   │       ├── PermissionRepository.java
-         │                   │       ├── RoleRepository.java
-         │                   │       └── UserRepository.java
-         │                   ├── controllers/
-         │                   │   ├── AuthenticationBean.java
-         │                   │   ├── AuthorizationFilter.java
-         │                   │   └── security/
-         │                   │       ├── UserHome.java
-         │                   │       ├── UserList.java
-         │                   │       ├── UserPrincipal.java
-         │                   │       └── UserSession.java
-         │                   ├── domain/
-         │                   │   ├── common/
-         │                   │   │   ├── GenderType.java
-         │                   │   │   └── Person.java
-         │                   │   └── security/
-         │                   │       ├── ActionType.java
-         │                   │       ├── Permission.java
-         │                   │       ├── Role.java
-         │                   │       └── User.java
-         │                   ├── exception/
-         │                   │   ├── CredentialInvalidException.java
-         │                   │   ├── EncryptorException.java
-         │                   │   └── EntityNotFoundException.java
-         │                   ├── faces/
-         │                   │   ├── ContactoBean.java
-         │                   │   ├── FacesUtil.java
-         │                   │   ├── InicioBean.java
-         │                   │   ├── RecuperarBean.java
-         │                   │   ├── ReservaBean.java
-         │                   │   └── ValidatorBean.java
-         │                   ├── jakarta/
-         │                   │   └── hello/
-         │                   │       ├── Hello.java
-         │                   │       ├── HelloApplication.java
-         │                   │       └── HelloWorldResource.java
-         │                   └── util/
-         │                       └── EncryptorManager.java
-         ├── liberty/
-         │   └── config/
-         │       └── server.xml
-         └── webapp/
-             ├── contacto.xhtml
-             ├── index.xhtml
-             ├── login.xhtml
-             ├── recuperar.xhtml
-             ├── reserva.xhtml
-             ├── servicios.xhtml
-             ├── test.xhtml
-             ├── images/
-             │   ├── fondo.jpg
-             │   ├── inicio.jpg
-             │   ├── inicio1.jpg
-             │   ├── reserva.jpg
-             │   ├── restaurante.jpg
-             │   ├── room-vibe-logo.jpg
-             │   ├── spa.jpg
-             │   └── servicios/
-             │       ├── desayuno.jpg
-             │       ├── estacionamiento.jpg
-             │       ├── sala.jpg
-             │       ├── seguridad.jpg
-             │       ├── spa.jpg
-             │       └── wifi.jpg
-             ├── security/
-             │   ├── userEdit.xhtml
-             │   └── userList.xhtml
-             └── WEB-INF/
-                 ├── web.xml
-                 └── templates/
-                     ├── base.xhtml
-                     └── fragments/
-                         ├── footer.xhtml
-                         └── topbar.xhtml
+├── Dockerfile
+├── docker-compose-dev-mysql.yml
+├── docker-compose-prod.yml
+├── docker-env
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── README.md
+├── room-vibe-web.iml
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── edu/
+│       │       └── unl/
+│       ├── liberty/
+│       │   └── config/
+│       │       └── server.xml
+│       ├── resources/
+│       │   └── META-INF/
+│       │       ├── initial-data.sql
+│       │       ├── persistence-hibernate.xml
+│       │       └── persistence.xml
+│       └── webapp/
+│           ├── contacto.xhtml
+│           ├── index.xhtml
+│           ├── login.xhtml
+│           ├── recuperar.xhtml
+│           ├── reserva.xhtml
+│           ├── habitaciones/
+│           │   ├── habitacionDoble.xhtml
+│           │   ├── habitaciones.xhtml
+│           │   ├── habitacionPresidencial.xhtml
+│           │   ├── habitacionSencilla.xhtml
+│           │   └── habitacionSuite.xhtml
+│           ├── resources/
+│           │   ├── css/
+│           │   └── images/
+│           ├── security/
+│           │   ├── userEdit.xhtml
+│           │   └── userList.xhtml
+│           ├── servicios/
+│           │   ├── servicio.xhtml
+│           │   ├── servicioDesayuno.xhtml
+│           │   ├── servicioEstacionamiento.xhtml
+│           │   ├── servicioSala.xhtml
+│           │   ├── servicioSeguridad.xhtml
+│           │   ├── servicioSpa.xhtml
+│           │   └── servicioWifi.xhtml
+│           └── WEB-INF/
+│               ├── web.xml
+│               └── templates/
+│                   ├── base.xhtml
+│                   └── fragments/
+│                       ├── footer.xhtml
+│                       └── topbar.xhtml
 ```
 
 ---
@@ -180,6 +146,7 @@ mvn clean install
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 >>>>>>> origin/feature
 - ### [Steeven Pardo](https://github.com/Dan1el17) : Configuración y conexion con la base de datos.
 - ### [Royel Jima](https://github.com/R0yalCode) : Configuración en las vistas, cuando el usuario se va a registrar o iniciar secion.  
@@ -187,6 +154,12 @@ mvn clean install
 - ### [Daniel Saavedra](https://github.com/Dan-San837) : Diseño de la vista principal (index) e implementación de clases complementarias para la misma. 
 <<<<<<< HEAD
 =======
+=======
+- ### [Steeven Pardo](https://github.com/Dan1el17) : Encargado de la configuración e integración de la base de datos, asegurando una conexión eficiente y segura entre la aplicación y el sistema de gestión de datos.
+- ### [Royel Jima](https://github.com/R0yalCode) : Responsable de la configuración de las vistas relacionadas con los procesos de registro e inicio de sesión de los usuarios. Revisor, utilizando gitflow para la revision del codigo de la implementaciond de cada participante, y su correcto flujo de trabajo en las diferentes ramas. 
+- ### [Juan Calopino](https://github.com/JuaaanCalopino) : Diseñó e implementó las vistas orientadas al cliente, permitiendo la selección de habitaciones y la visualización detallada de los servicios ofrecidos. 
+- ### [Daniel Saavedra](https://github.com/Dan-San837) : Lideró el diseño de la vista principal (index) del proyecto e implementó clases adicionales para complementar su funcionamiento. 
+>>>>>>> origin/feature
 
 >>>>>>> origin/feature
 
